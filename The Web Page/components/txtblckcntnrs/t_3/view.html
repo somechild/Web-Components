@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+<head>
+	<title>T_3 View</title>
+
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		body{
+			background-color: #cd583c;
+		}
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 48px; margin-bottom: 18px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #FCF9FC;
+			text-align: center;
+			font-style: italic;
+		}
+		b{
+			font-weight: bold;
+		}
+
+		.threeCols1s{
+			width: 31%;
+		}
+		.threeCols2s{
+			width: 64%;
+		}
+		.cols{
+			float: left;
+			margin: 1%;
+		}
+
+
+		.nscaBlock{
+			height: auto; /*### -- width: youset; -- ###*/
+			padding: 24px; margin-bottom: 36px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			border-radius: 1px;
+			background-color: #FCF9FC;
+
+			border: 3px solid #e9ab26;
+			border-top: 2px solid #111e83; border-bottom: 1px solid #111e83;
+		}
+
+		.nscaBlock>p{
+			margin-top: 12px; margin-bottom: 18px;
+			line-height: 18px;
+			font-size: 13px;
+			color: #260d11; /*### -- A dark but not black color for the text | currently set to a dark brown as dark browns tend to do well for reading -- ###*/
+
+			text-shadow: 0px 0px 3px #FCFCFC;
+		}
+		.nscaBlock>img{
+			margin: 12px;
+		}
+		.nscaBlock>img[align=right]{
+			margin-left: 12px; margin-top: 9px; margin-bottom: 9px; margin-right: 0px;
+		}
+		.nscaBlock>img[align=left]{
+			margin-left: 0px; margin-top: 9px; margin-bottom: 9px; margin-right: 12px;
+		}
+		.nscaBlock a{
+			color: #111e83; /*### -- Choose a color that stands out for links -- ###*/
+		}
+		.nscaBlock a:active{
+			color: #29338e; /*### -- Color for when the link is pressed -- ###*/
+		}
+		.nscaBlock>p>a{
+			text-decoration: underline;
+		}
+
+		/*action links seperate from paragraphs*/
+		.nscaBlock>a{
+			font-size: 14px;
+			display: block;
+			text-align: center;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+		
+		/* Please include 'downArrowIco.png' (link in demo of this component) and reference it properly in the CSS below */
+
+		.collapsed{
+			overflow: hidden;
+			position: relative; /*Any position but static*/
+		}
+		.collapsed>span{
+			position: absolute;
+			background-color: rgba(270, 270, 270, .6); /*Bg color of expand/collpase toggle bttn */
+			z-index: 1; cursor: pointer;
+			background-image: url('downArrowIco.png'); background-repeat: no-repeat; /*!!!##### Reference the image properly in your project pl0x :) #####!!!*/
+			background-position: center; background-size: auto 60%;
+			-webkit-transition: all .2s;
+			   -moz-transition: all .2s;
+			    -ms-transition: all .2s;
+			     -o-transition: all .2s;
+			        transition: all .2s;
+		}
+
+		/*styling for the expand option and collapse option states of this button*/
+		.collapsed>span:not(.collapseBtnd){
+			bottom: 0; left: 0;
+			width: 100%; height: 48px;
+			-webkit-transform: rotate(0deg);
+			   -moz-transform: rotate(0deg);
+			    -ms-transform: rotate(0deg);
+			     -o-transform: rotate(0deg);
+			        transform: rotate(0deg);
+		}
+		.collapsed>span.collapseBtnd{
+			bottom: -24px; left: calc(50% - 30px);
+			width: 60px; height: 24px;
+			border-radius: 3px 3px 0px 0px; box-shadow: 0px -6px 12px -9px black;
+			-webkit-transform: rotate(180deg);
+			   -moz-transform: rotate(180deg);
+			    -ms-transform: rotate(180deg);
+			     -o-transform: rotate(180deg);
+			        transform: rotate(180deg);
+		}
+
+		/* Lil animation on hover :) */
+		.collapsed>span:hover{
+			background-color: rgba(270, 270, 270, .3);
+		}
+		
+	</style>
+</head>
+<body>
+	<h1>3. &ndash; Collapsable add-on class to any styled block</h1>
+
+	<div class="nscaBlock cols threeCols2s">
+		<p>Noice for lotsa things. Lorem ipsum dolor sit amet, consectetur <a href="#">aiufhaiuhd</a>  adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+		<a href="#">Action Link</a>
+	</div>
+
+	<div class="nscaBlock collapsed cols threeCols1s" data-collapsedHeight="140">
+		<p><b>Lots of shit in here so make collapsed this!</b>. This just gives you modifiable styling code for the block and its contents. Currently using a 3-column grid... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. <a href="#">Links are awsome!</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<img src="../../../imgs/globeIco.png" align="right">
+		<p>Spacing around images. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi. <a href="#">Lorem Ipsum</a> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui. </p>
+		
+		<span></span>
+	</div>
+
+	<pre>
+
+
+&lt;div class="{oneOfThePrestyledTextblockOptionsOnThisSite} collapsed" data-collapsedHeight="{specifyDIVHeightWhenCollapsed | *greaterThan 48px*}"&gt;
+	
+&lt;!-- 
+	use any of the following tags within this block and they'll be styled!
+--&gt;
+
+	&lt;p&gt;
+	
+		{paragraphText}
+		&lt;a href="{url}"&gt;{linkInsideParagraph}&lt;/a&gt;
+		&lt;br&gt;
+		{moreParagraphText}
+	
+	&lt;/p&gt;
+	
+	&lt;img src="{imgLink}" align="{left/right}"&gt;
+
+	&lt;a href="{url}"&gt;{linkOutsideText}&lt;/a&gt;
+
+
+	
+	{
+		if you used the 'collapsed' class for this add:
+		&lt;span&gt;&lt;/span&gt;
+		:as the last element inside the textBlock's div
+	}
+&lt;/div&gt;
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+
+/* Please include 'downArrowIco.png' (link in demo of this component) and reference it properly in the CSS below */
+
+/*!! Also use this with one of the other prestyled textblocks for it to work well | We've used the 'Nascre' view for this demo !!*/
+		
+.collapsed{
+	overflow: hidden;
+	position: relative; /*Any position but static*/
+}
+.collapsed>span{
+	position: absolute;
+	background-color: rgba(270, 270, 270, .6); /*Bg color of expand/collpase toggle bttn */
+	z-index: 1; cursor: pointer;
+	background-image: url('downArrowIco.png'); background-repeat: no-repeat; /*!!!##### Reference the image properly in your project pl0x :) #####!!!*/
+	background-position: center; background-size: auto 60%;
+	-webkit-transition: all .2s;
+	   -moz-transition: all .2s;
+	    -ms-transition: all .2s;
+	     -o-transition: all .2s;
+	        transition: all .2s;
+}
+
+/*styling for the expand option and collapse option states of this button*/
+.collapsed>span:not(.collapseBtnd){
+	bottom: 0; left: 0;
+	width: 100%; height: 48px;
+	-webkit-transform: rotate(0deg);
+	   -moz-transform: rotate(0deg);
+	    -ms-transform: rotate(0deg);
+	     -o-transform: rotate(0deg);
+	        transform: rotate(0deg);
+}
+.collapsed>span.collapseBtnd{
+	bottom: -24px; left: calc(50% - 30px);
+	width: 60px; height: 24px;
+	border-radius: 3px 3px 0px 0px; box-shadow: 0px -6px 12px -9px black;
+	-webkit-transform: rotate(180deg);
+	   -moz-transform: rotate(180deg);
+	    -ms-transform: rotate(180deg);
+	     -o-transform: rotate(180deg);
+	        transform: rotate(180deg);
+}
+
+/* Lil animation on hover :) */
+.collapsed>span:hover{
+	background-color: rgba(270, 270, 270, .3);
+}
+
+	</pre>
+	<pre>
+//initially collapse each item based on it's set attributes
+$('.collapsed').each(function() {
+	$(this).height($(this).attr('data-collapsedHeight'));
+});
+
+
+//code for toggling collapse/expand
+$('.collapsed>span').click(function() {
+	if ($(this).hasClass('collapseBtnd')) { //if is expanded
+
+		//reset to how it was after initialization
+		$(this).parent().attr('style', '').height($(this).parent().attr('data-collapsedHeight'));
+
+		$(this).removeClass('collapseBtnd');
+
+	}
+	else{
+		//otherwise expand div and add a class to flip the arrow around (indicate a collapse option)
+		$(this).parent().css({
+			'height': 'auto',
+			'overflow': 'visible',
+			'margin-bottom': parseInt($(this).parent().css('margin-bottom')) + 60 + 'px'
+		});
+		$(this).addClass('collapseBtnd');
+	};
+});
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+
+		//initially collapse each item based on it's set attributes
+		$('.collapsed').each(function() {
+			$(this).height($(this).attr('data-collapsedHeight'));
+		});
+
+
+		//code for toggling collapse/expand
+		$('.collapsed>span').click(function() {
+			if ($(this).hasClass('collapseBtnd')) { //if is expanded
+
+				//reset to how it was after initialization
+				$(this).parent().attr('style', '').height($(this).parent().attr('data-collapsedHeight'));
+
+				$(this).removeClass('collapseBtnd');
+
+			}
+			else{
+				//otherwise expand div and add a class to flip the arrow around (indicate a collapse option)
+				$(this).parent().css({
+					'height': 'auto',
+					'overflow': 'visible',
+					'margin-bottom': parseInt($(this).parent().css('margin-bottom')) + 60 + 'px'
+				});
+				$(this).addClass('collapseBtnd');
+			};
+		});
+	</script>
+</body>
+</html>

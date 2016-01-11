@@ -1,0 +1,1337 @@
+<!doctype html>
+<html>
+<head>
+	<title>F_1</title>
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<link rel="stylesheet" type="text/css" href="view.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 72px;
+			/*padding-left: 48px;*/
+			font-size: 18px;
+			color: #969696;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 11px;
+			text-align: center;
+			margin-top: 24px;
+			color: #787878;
+		}
+		b{
+			font-weight: bold;
+		}
+
+
+		body>span{
+			font-size: 11px;
+			color: #CCCCCC;
+			text-align: center;
+			display: block;
+			padding: 24px; padding-top: 18px;
+			line-height: 18px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		
+
+		body>p{
+			/*padding-left: 24px;*/
+			text-align: center;
+			font-size: 18px;
+			font-style: italic;
+			margin-bottom: 18px; margin-top: 66px;
+			/*color: #2D6173;*/
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		body>hr{
+			outline: none; border: none;
+			display: block;
+			height: 2px; width: 80%; margin-left: 10%;
+			background-color: #CCC;
+			margin-top: 60px; margin-bottom: 36px;
+		}
+	</style>
+</head>
+<body>
+	<h1>1. &ndash; 'Standard Glow'</h1>
+	<span>*Note &ndash; you must perform your own validation. I give sample stylings for a neutral form, a form with validation errors and a successfully submitted form.</span>
+	<span style="color:#787878;"><b>Everything's commented, take whichever parts you like.</b><br>The items in the Misc section use the js code provided.<br>Everything else is just HTML and CSS.</span>
+	<hr>
+	<p>Neutral</p>
+	<hr>
+
+	<form id="glowForm" name="testForm" action="" method="POST" accept-charset="UTF-8"
+autocomplete="off">
+
+
+		<fieldset>
+			
+			<legend>Text inputs</legend>
+			
+
+			<p>Full name:</p>
+			<input type="text" name="fullName" placeholder="Bruce Wayne">
+			
+
+			<p>Email:</p>
+			<input type="email" name="email" placeholder="test@swag.ca">
+			
+
+			<p>Password:</p>
+			<input type="password" name="password" placeholder="********">
+			
+
+			<p>Provide a description:</p>
+			<textarea name="description" placeholder="Description..."></textarea>
+		</fieldset>
+
+
+		<fieldset>
+
+			<legend>Misc</legend>
+
+
+			<p>Select a color:</p>
+			<div class="formDropdown singleSelect collapsed">
+				<p data-selectedValue="1">
+					<span>Red</span>
+					<span>&#9662;</span>
+				</p>
+				<ul>
+					<p>Primary</p>
+					<li data-value="1" class="isSelected">Red</li>
+					<li data-value="2">Blue</li>
+					<li data-value="3">Yellow</li>
+					<p>Secondary</p>
+					<li data-value="4">Green</li>
+					<li data-value="5">Orange</li>
+					<li data-value="6">Purple</li>
+				</ul>
+
+				<!-- give the select below a name for the form to submit, leave the rest to js -->
+				<select name="color"></select>
+			</div>
+
+
+			<p>Select some cities:</p>
+			<div class="formDropdown multiSelect collapsed">
+
+				<!-- each item in data-selectedValue is split by ' /(*)/ ', do not use this for your data-value attributes in the options -->
+				<p data-selectedValue="1 /(*)/ 3 /(*)/ 4 /(*)/ 7 /(*)/ 2">
+					<span>London, Paris, New York City, Tokyo, Toronto</span>
+					<span>&#9662;</span>
+				</p>
+				
+				<div>
+					<p>Select multiple items</p>
+					<ul>
+						<p>Cities:</p>
+						<li data-value="1" class="isSelected">London</li>
+						<li data-value="2" class="isSelected">Toronto</li>
+						<li data-value="3" class="isSelected">Paris</li>
+						<li data-value="4" class="isSelected">New York City</li>
+						<li data-value="5">Los Angeles</li>
+						<li data-value="6">San Fransico</li>
+						<li data-value="7" class="isSelected">Tokyo</li>
+					</ul>
+					<a>Done</a>
+				</div>
+
+				<!-- give the select below a name for the form to submit, leave the rest to js -->
+				<select multiple name="cities"></select>
+			</div>
+
+
+
+			<p>Upload a file: <span><a href="https://icons8.com" style="font-size:6px;color:#CCC;text-decoration:none;">Upload icon by Icons8</a></span></p>
+
+
+			<!-- 
+				'disabled' class is to indicate drag n' drop isn't available 
+					-> JS will remove 'disabled' class if drag'n drop is available 
+			-->
+			<div class="fileUpload disabled">
+				<input type="file" accept="image/*">
+				<div>
+					<p class="msgForDisabled">Click to upload file</p>
+				</div>
+				<div>
+					<p class="msgForEnabled"><b>Click here</b> or <b>Drag n' Drop</b><br>to upload</p>
+					<!-- Upload icon by Icons8 -->
+					<img src="https://maxcdn.icons8.com/iOS7/PNG/75/Very_Basic/upload-75.png" title="Upload" width="75">
+				</div>
+			</div>
+
+
+		</fieldset>
+
+
+		<input type="submit" value="Submit">
+	
+
+	</form>
+	
+	<hr>
+	<p>With Errors</p>
+	<hr>
+
+	<form id="glowForm" name="testFormWithErrors" action="" method="POST" accept-charset="UTF-8"
+autocomplete="off">
+		
+		<p class="errorTitle">Submitted data invalid</p> <!-- Error title text -->
+		
+
+		<fieldset>
+		
+			<legend>Text inputs</legend>
+		
+
+			<p class="hasError">Please enter your last name as well</p> <!-- For input title text, add class 'hasError' -->
+			<input class="hasError" type="text" placeholder="Bruce Wayne" value="Jane"> <!-- For any input with errors, add class 'hasError' -->
+		
+
+			<p class="hasError">Please enter a valid email</p>
+			<input class="hasError" type="email" placeholder="test@swag.ca" value="NotAReal@3mail">
+		
+
+			<p>Password:</p>
+			<input type="password" placeholder="********">
+
+			<p class="hasError">Provide a description:</p>
+			<textarea placeholder="Description..." class="hasError"></textarea>
+		
+		</fieldset>
+		
+
+		<fieldset>
+		
+			<legend>Misc</legend>
+		
+
+			<p class="hasError">Wrong color</p>
+			<div class="formDropdown singleSelect collapsed hasError"> <!-- For custom form input item, give the containing div a class 'hasError' -->
+				<p data-selectedValue="1">
+					<span>Red</span>
+					<span>&#9662;</span>
+				</p>
+				<ul>
+					<p>Primary</p>
+					<li data-value="1" class="isSelected">Red</li>
+					<li data-value="2">Blue</li>
+					<li data-value="3">Yellow</li>
+					<p>Secondary</p>
+					<li data-value="4">Green</li>
+					<li data-value="5">Orange</li>
+					<li data-value="6">Purple</li>
+				</ul>
+
+				<!-- Don't worry about the select below, js will take care of it -->
+				<select></select>
+			</div>
+		
+
+			<p class="hasError">Invalid cities</p>
+			<div class="formDropdown multiSelect collapsed hasError">
+
+				<!-- each item in data-selectedValue is split by ' /(*)/ ', do not use this for your data-value attributes in the options -->
+				<p data-selectedValue="1 /(*)/ 3 /(*)/ 4 /(*)/ 7 /(*)/ 2">
+					<span>London, Paris, New York City, Tokyo, Toronto</span>
+					<span>&#9662;</span>
+				</p>
+				
+				<div>
+					<p>Select multiple items</p>
+					<ul>
+						<p>Cities:</p>
+						<li data-value="1" class="isSelected">London</li>
+						<li data-value="2" class="isSelected">Toronto</li>
+						<li data-value="3" class="isSelected">Paris</li>
+						<li data-value="4" class="isSelected">New York City</li>
+						<li data-value="5">Los Angeles</li>
+						<li data-value="6">San Fransico</li>
+						<li data-value="7" class="isSelected">Tokyo</li>
+					</ul>
+					<a>Done</a>
+				</div>
+
+				<!-- Don't worry about the select below, js will take care of it -->
+				<select multiple></select>
+			</div>
+		
+
+			<p class="hasError">File too large!</p>
+			<div class="fileUpload hasError disabled">
+				<input type="file" accept="image/*">
+				<div>
+					<p class="msgForDisabled">Click to upload file</p>
+				</div>
+				<div>
+					<p class="msgForEnabled"><b>Click here</b> or <b>Drag n' Drop</b><br>to upload</p>
+					<!-- Upload icon by Icons8 -->
+					<img src="https://maxcdn.icons8.com/iOS7/PNG/75/Very_Basic/upload-75.png" title="Upload" width="75">
+				</div>
+			</div>
+		
+		</fieldset>
+		
+	
+		<!-- Disabled button (attr class="disabled") -> can be used while submitting, incomplete form, etc. -->
+		<input type="submit" value="Submit" class="disabled" onclick="return false;">
+	
+	</form>
+	
+	<hr>
+	<p>Successful submission</p>
+	<hr>
+
+	<form id="glowForm" name="testFormConfirmed" action="" method="POST" accept-charset="UTF-8"
+autocomplete="off">
+		
+		<p class="successTitle">Success. Form submitted!</p>
+	
+	</form>
+
+	<pre>
+&lt;!-- 
+	make sure jQuery is loaded. modify as you wish :)
+
+	Regarding error/invalid form handling --> You will have to perform your own validation, and add/remove error-indicating classes and text on your own. I simply provide the styles for them.
+--&gt;
+-------------------------Neutral form sample---------------------------
+
+
+&lt;form id="glowForm" name="testForm" action="" method="POST" accept-charset="UTF-8"
+autocomplete="off">
+
+
+	&lt;fieldset>
+		
+		&lt;legend>Text inputs&lt;/legend>
+		
+
+		&lt;p>Full name:&lt;/p>
+		&lt;input type="text" name="fullName" placeholder="Bruce Wayne">
+		
+
+		&lt;p>Email:&lt;/p>
+		&lt;input type="email" name="email" placeholder="test@swag.ca">
+		
+
+		&lt;p>Password:&lt;/p>
+		&lt;input type="password" name="password" placeholder="********">
+		
+
+		&lt;p>Provide a description:&lt;/p>
+		&lt;textarea name="description" placeholder="Description...">&lt;/textarea>
+	&lt;/fieldset>
+
+
+	&lt;fieldset>
+
+		&lt;legend>Misc&lt;/legend>
+
+
+		&lt;p>Select a color:&lt;/p>
+		&lt;div class="formDropdown singleSelect collapsed">
+			&lt;p data-selectedValue="1">
+				&lt;span>Red&lt;/span>
+				&lt;span>&#9662;&lt;/span>
+			&lt;/p>
+			&lt;ul>
+				&lt;p>Primary&lt;/p>
+				&lt;li data-value="1" class="isSelected">Red&lt;/li>
+				&lt;li data-value="2">Blue&lt;/li>
+				&lt;li data-value="3">Yellow&lt;/li>
+				&lt;p>Secondary&lt;/p>
+				&lt;li data-value="4">Green&lt;/li>
+				&lt;li data-value="5">Orange&lt;/li>
+				&lt;li data-value="6">Purple&lt;/li>
+			&lt;/ul>
+
+			&lt;!-- give the select below a name for the form to submit, leave the rest to js -->
+			&lt;select name="color">&lt;/select>
+		&lt;/div>
+
+
+		&lt;p>Select some cities:&lt;/p>
+		&lt;div class="formDropdown multiSelect collapsed">
+
+			&lt;!-- each item in data-selectedValue is split by ' /(*)/ ', do not use this for your data-value attributes in the options -->
+			&lt;p data-selectedValue="1 /(*)/ 3 /(*)/ 4 /(*)/ 7 /(*)/ 2">
+				&lt;span>London, Paris, New York City, Tokyo, Toronto&lt;/span>
+				&lt;span>&#9662;&lt;/span>
+			&lt;/p>
+			
+			&lt;div>
+				&lt;p>Select multiple items&lt;/p>
+				&lt;ul>
+					&lt;p>Cities:&lt;/p>
+					&lt;li data-value="1" class="isSelected">London&lt;/li>
+					&lt;li data-value="2" class="isSelected">Toronto&lt;/li>
+					&lt;li data-value="3" class="isSelected">Paris&lt;/li>
+					&lt;li data-value="4" class="isSelected">New York City&lt;/li>
+					&lt;li data-value="5">Los Angeles&lt;/li>
+					&lt;li data-value="6">San Fransico&lt;/li>
+					&lt;li data-value="7" class="isSelected">Tokyo&lt;/li>
+				&lt;/ul>
+				&lt;a>Done&lt;/a>
+			&lt;/div>
+
+			&lt;!-- give the select below a name for the form to submit, leave the rest to js -->
+			&lt;select multiple name="cities">&lt;/select>
+		&lt;/div>
+
+
+
+		&lt;p>Upload a file: &lt;span>&lt;a href="https://icons8.com" style="font-size:6px;color:#CCC;text-decoration:none;">Upload icon by Icons8&lt;/a>&lt;/span>&lt;/p>
+
+
+		&lt;!-- 
+			'disabled' class is to indicate drag n' drop isn't available 
+				-> JS will remove 'disabled' class if drag'n drop is available 
+		-->
+		&lt;div class="fileUpload disabled">
+			&lt;input type="file" accept="image/*">
+			&lt;div>
+				&lt;p class="msgForDisabled">Click to upload file&lt;/p>
+			&lt;/div>
+			&lt;div>
+				&lt;p class="msgForEnabled">&lt;b>Click here&lt;/b> or &lt;b>Drag n' Drop&lt;/b>&lt;br>to upload&lt;/p>
+				&lt;!-- Upload icon by Icons8 -->
+				&lt;img src="https://maxcdn.icons8.com/iOS7/PNG/75/Very_Basic/upload-75.png" title="Upload" width="75">
+			&lt;/div>
+		&lt;/div>
+
+
+	&lt;/fieldset>
+
+
+	&lt;input type="submit" value="Submit">
+
+
+&lt;/form>
+
+
+
+
+
+
+-------------------------Invalid/Error form sample---------------------------
+
+&lt;form id="glowForm" name="testFormWithErrors" action="" method="POST" accept-charset="UTF-8"
+autocomplete="off">
+		
+	&lt;p class="errorTitle">Submitted data invalid&lt;/p> &lt;!-- Error title text -->
+	
+
+	&lt;fieldset>
+	
+		&lt;legend>Text inputs&lt;/legend>
+	
+
+		&lt;p class="hasError">Please enter your last name as well&lt;/p> &lt;!-- For input title text, add class 'hasError' -->
+		&lt;input class="hasError" type="text" placeholder="Bruce Wayne" value="Jane"> &lt;!-- For any input with errors, add class 'hasError' -->
+	
+
+		&lt;p class="hasError">Please enter a valid email&lt;/p>
+		&lt;input class="hasError" type="email" placeholder="test@swag.ca" value="NotAReal@3mail">
+	
+
+		&lt;p>Password:&lt;/p>
+		&lt;input type="password" placeholder="********">
+
+		&lt;p class="hasError">Provide a description:&lt;/p>
+		&lt;textarea placeholder="Description..." class="hasError">&lt;/textarea>
+	
+	&lt;/fieldset>
+	
+
+	&lt;fieldset>
+	
+		&lt;legend>Misc&lt;/legend>
+	
+
+		&lt;p class="hasError">Wrong color&lt;/p>
+		&lt;div class="formDropdown singleSelect collapsed hasError"> &lt;!-- For custom form input item, give the containing div a class 'hasError' -->
+			&lt;p data-selectedValue="1">
+				&lt;span>Red&lt;/span>
+				&lt;span>&#9662;&lt;/span>
+			&lt;/p>
+			&lt;ul>
+				&lt;p>Primary&lt;/p>
+				&lt;li data-value="1" class="isSelected">Red&lt;/li>
+				&lt;li data-value="2">Blue&lt;/li>
+				&lt;li data-value="3">Yellow&lt;/li>
+				&lt;p>Secondary&lt;/p>
+				&lt;li data-value="4">Green&lt;/li>
+				&lt;li data-value="5">Orange&lt;/li>
+				&lt;li data-value="6">Purple&lt;/li>
+			&lt;/ul>
+
+			&lt;!-- Don't worry about the select below, js will take care of it -->
+			&lt;select>&lt;/select>
+		&lt;/div>
+	
+
+		&lt;p class="hasError">Invalid cities&lt;/p>
+		&lt;div class="formDropdown multiSelect collapsed hasError">
+
+			&lt;!-- each item in data-selectedValue is split by ' /(*)/ ', do not use this for your data-value attributes in the options -->
+			&lt;p data-selectedValue="1 /(*)/ 3 /(*)/ 4 /(*)/ 7 /(*)/ 2">
+				&lt;span>London, Paris, New York City, Tokyo, Toronto&lt;/span>
+				&lt;span>&#9662;&lt;/span>
+			&lt;/p>
+			
+			&lt;div>
+				&lt;p>Select multiple items&lt;/p>
+				&lt;ul>
+					&lt;p>Cities:&lt;/p>
+					&lt;li data-value="1" class="isSelected">London&lt;/li>
+					&lt;li data-value="2" class="isSelected">Toronto&lt;/li>
+					&lt;li data-value="3" class="isSelected">Paris&lt;/li>
+					&lt;li data-value="4" class="isSelected">New York City&lt;/li>
+					&lt;li data-value="5">Los Angeles&lt;/li>
+					&lt;li data-value="6">San Fransico&lt;/li>
+					&lt;li data-value="7" class="isSelected">Tokyo&lt;/li>
+				&lt;/ul>
+				&lt;a>Done&lt;/a>
+			&lt;/div>
+
+			&lt;!-- Don't worry about the select below, js will take care of it -->
+			&lt;select multiple>&lt;/select>
+		&lt;/div>
+	
+
+		&lt;p class="hasError">File too large!&lt;/p>
+		&lt;div class="fileUpload hasError disabled">
+			&lt;input type="file" accept="image/*">
+			&lt;div>
+				&lt;p class="msgForDisabled">Click to upload file&lt;/p>
+			&lt;/div>
+			&lt;div>
+				&lt;p class="msgForEnabled">&lt;b>Click here&lt;/b> or &lt;b>Drag n' Drop&lt;/b>&lt;br>to upload&lt;/p>
+				&lt;!-- Upload icon by Icons8 -->
+				&lt;img src="https://maxcdn.icons8.com/iOS7/PNG/75/Very_Basic/upload-75.png" title="Upload" width="75">
+			&lt;/div>
+		&lt;/div>
+	
+	&lt;/fieldset>
+	
+
+	&lt;!-- Disabled button (attr class="disabled") -> can be used while submitting, incomplete form, etc. -->
+	&lt;input type="submit" value="Submit" class="disabled" onclick="return false;">
+
+&lt;/form>
+
+
+
+
+-------------------------Successful Submission Sample---------------------------
+
+&lt;form id="glowForm" name="testFormConfirmed" action="" method="POST" accept-charset="UTF-8"
+autocomplete="off">
+		
+	&lt;p class="successTitle">Success. Form submitted!&lt;/p>
+
+&lt;/form>
+
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	read the comments and CSS to modify as you wish :)
+*/
+
+/* Form container */
+#glowForm{
+	display: block;
+	padding: 48px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/* For a subtle division between fieldsets, change as you wish */
+#glowForm>fieldset{
+	padding-bottom: 36px; margin-bottom: 12px;
+	border-bottom: 1px solid #F7F7F7;
+}
+
+
+
+/*--------------------------------------------------------------------*/
+
+/* Error and confirmation title text styling */
+#glowForm>p.errorTitle{
+	margin-bottom: 24px;
+	color: #E3664D;
+	font-weight: bold;
+	font-size: 13px;
+}
+#glowForm>p.successTitle{
+	margin-bottom: 72px;
+	color: #65AD34;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+}
+
+
+/* Fieldset titles */
+#glowForm>fieldset>legend{
+	font-size: 15px;
+	color: #576063;
+	font-weight: bold;
+}
+
+
+
+
+/* Texts describing inputs */
+
+#glowForm>fieldset>p{
+	color: #687073;
+	font-size: 13px;
+	margin-bottom: 6px; margin-top: 18px;
+}
+/* Input description text has error style */
+#glowForm>fieldset>p.hasError{
+	color: #AD4834;
+	font-style: italic;
+}
+/*--------------------------------------------------------------------*/
+
+
+
+
+
+
+/*--------------------------------------------------------------------*/
+/* for text input fields */
+
+#glowForm>fieldset>input[type="text"], #glowForm>fieldset>input[type="password"], #glowForm>fieldset>input[type="email"]{
+	width: 240px;
+	height: 24px;
+	padding: 1px 0 0 12px;
+
+	outline: none;
+	border: 1px solid #C1C4C7;
+	border-radius: 6px;
+	box-shadow: inset 1px 3px 3px -3px #DEDEDE;
+
+	background-color: white;
+
+	font-size: 12px;
+	color: #7F98AD;
+}
+/* textareas are similar to text input fields */
+#glowForm>fieldset>textarea{
+	resize: none;
+	outline: none;
+	min-height: 72px; min-width: 240px;
+	padding: 9px 0px 0px 12px;
+
+
+	border: 1px solid #C1C4C7;
+	border-radius: 6px;
+	box-shadow: inset 1px 3px 3px -3px #DEDEDE;
+
+	background-color: white;
+
+	font-size: 12px;
+	color: #7F98AD;
+}
+
+/* if a text input field is invalid style */
+#glowForm>fieldset>input[type="text"].hasError, #glowForm>fieldset>input[type="password"].hasError, #glowForm>fieldset>input[type="email"].hasError, #glowForm>fieldset>textarea.hasError{
+	border: 1px solid #AD4834!important;
+	color: #AD4834;
+}
+
+/* on focus style for text inputs */
+#glowForm>fieldset>input[type="text"]:focus, #glowForm>fieldset>input[type="password"]:focus, #glowForm>fieldset>input[type="email"]:focus, #glowForm>fieldset>textarea:focus{
+	box-shadow: 0px 1px 12px -3px #497BA3;
+	border: 1px solid #7F98AD;
+}
+/*--------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------------*/
+
+/* submit button styles */
+
+#glowForm>input[type="submit"]{
+	display: block;
+	height: 36px; width: 84px;
+	outline: none; border: none;
+	cursor: pointer;
+	color: #FAFAFA;
+	background-color: #537591;
+
+	font-size: 13px;
+	font-weight: bold
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+
+	border: 1px solid transparent;
+	border-bottom: 1px solid #627280;
+	border-radius: 6px;
+
+
+	box-shadow: inset 0px -3px 9px -6px #42616B;
+}
+/* disabled submit button */
+#glowForm>input[type="submit"].disabled{
+	cursor: default;
+	background-color: #BFCBD6!important;
+	color: #EDF1F5!important;
+	border: 1px solid #BFCBD6!important;
+	box-shadow: none!important;
+}
+
+
+/* submit button interaction styles */
+#glowForm>input[type="submit"]:hover{
+	border: 1px solid #37444F;
+	box-shadow: inset 0px -6px 12px -6px #42616B;
+	background-color: #5D819E;
+}
+#glowForm>input[type="submit"]:active{
+	background-color: #537591;
+	background-color: #42616B;
+}
+/*--------------------------------------------------------------------*/
+
+
+
+
+
+/*--------------------------------------------------------------------*/
+
+/* custom dropdown styles */
+
+
+.formDropdown{
+	width: calc(240px + 12px); height: 25px;
+	cursor: pointer;
+	position: relative;
+}
+		/* .singleSelect is the pseudo of the normal &lt;select>&lt;/select> */
+	.formDropdown.singleSelect:not(.collapsed){
+		box-shadow: 0px 1px 12px -3px #497BA3;
+	}
+	/* hide the actual select element inside the pseudo select dropdown */
+	.formDropdown>select{
+		opacity: 0;
+		position: absolute;
+		height: 0; width: 0;
+	}
+
+	/* the selected option which shows when dropdown is collapsed */
+	.formDropdown>p{
+		display: block;
+		width: 240px;
+		height: 24px; line-height: 24px;
+		padding: 1px 0 0 12px;
+		background-color: #F9F9F8;
+		color: #424242;
+		border: 1px solid #CCC;
+		border-radius: 6px;
+		font-size: 11px;
+	}
+	.formDropdown.singleSelect:not(.collapsed)>p{
+		border: 1px solid #7F98AD;
+	}
+
+	/* if selection is invalid */
+	.formDropdown.hasError>p{
+		color: #AD4834;
+		border: 1px solid #AD4834!important;
+	}
+
+	/* for the little down arrow to the very right */
+	.formDropdown>p>span{
+		display: block;
+		float: left;
+	}
+	.formDropdown>p>span:first-child{
+		width: calc(100% - 18px);
+		overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+	}
+	.formDropdown>p>span:last-child{
+		width: 7px;
+		color: #787878;
+	}
+
+
+	/* when dropdown is expanded, style for currently selected option */
+	.formDropdown li.isSelected{
+		background-color: #EBEBEB;
+	}
+
+
+	/* hide dropdown when collapsed */
+	.formDropdown.singleSelect.collapsed>ul{
+		display: none;
+	}
+
+
+	/* dropdown container styling */
+	.formDropdown.singleSelect>ul{
+		display: block;
+		position: absolute;
+		top: 24px;
+		z-index: 2;
+		background-color: #F9F9F8;
+		height: auto; width: calc(240px + 12px);
+		border: 1px solid #7F98AD;
+		border-top: none;
+		border-radius: 0px 0px 6px 6px;
+		box-shadow: 0px 3px 9px -6px #497BA3;
+	}
+	/* dropdown container styling when it has an error */
+	.formDropdown.singleSelect.hasError>ul{
+		border: 1px solid #AD4834!important;
+		border-top: none!important;
+	}
+
+	/* option area titles (for dividing options into groups -- &lt;optgroup>&lt;/..>) */
+	.formDropdown.singleSelect>ul>p{
+		font-size: 9px;
+		height: 27px; line-height: 33px;
+		padding-left: 6px;
+		color: #787878;
+		font-style: italic;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	/* dropdown options */
+	.formDropdown.singleSelect>ul>li{
+		height: 24px; line-height: 24px;
+		padding-left: 12px;
+		font-size: 11px;
+		color: #424242;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.formDropdown.singleSelect>ul>li:hover{
+		background-color: #EBEBEB;
+	}
+
+
+
+	/* for a multiple select modal */
+
+	.formDropdown.multiSelect.collapsed>div{
+		display: none;
+	}
+
+	/* container */
+	.formDropdown.multiSelect>div{
+		position: fixed; z-index: 6;
+		height: 100%; width: 100%;
+		top: 0; left: 0;
+		background-color: rgba(0, 0, 0, 0.3);
+		cursor: default;
+		overflow: auto;
+	}
+
+	/* multiple select modal title */
+	.formDropdown.multiSelect>div>p{
+		width: 300px; text-align: center;
+		position: relative; margin: 0 auto;
+		margin-top: 108px;
+		background-color: #F9F9F8;
+		padding-top: 12px; padding-bottom: 9px;
+		font-size: 12px;
+		border-radius: 3px 3px 0px 0px;
+		border: 1px solid #EBEBEB;
+		box-shadow: 0px 6px 6px -9px #424242;
+		z-index: 1;
+	}
+
+	/* multiple select option list */
+	.formDropdown.multiSelect>div>ul{
+		width: 300px; display: block;
+		margin: 0 auto; position: relative;
+		background-color: #F3F3F3;
+		border: 1px solid #EBEBEB;
+		box-shadow: 0px 3px 12px -6px black;
+		z-index: 0;
+
+
+		max-height: 240px;
+		overflow-y: scroll;
+	}
+
+	/* option list title */
+	.formDropdown.multiSelect>div>ul>p{
+		height: 36px; line-height: 42px;
+		font-size: 9px;
+		padding-left: 12px;
+		color: #787878;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+	}
+
+	/* option list options */
+	.formDropdown.multiSelect>div>ul>li{
+		height: 36px; line-height: 36px;
+		padding-left: 12px; padding-right: 12px;
+		font-size: 12px;
+		cursor: pointer;
+
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.formDropdown.multiSelect>div>ul>li:hover{
+		background-color: #EBEBEB;
+	}
+
+	/* confirm &amp; close button */
+	.formDropdown.multiSelect>div>a{
+		display: block; width: 300px;
+		margin: 0 auto; position: relative;
+		text-align: center; background-color: #F9F9F8;
+		padding-top: 6px; padding-bottom: 9px;
+		font-size: 11px; cursor: pointer; color: #787878;
+		border-radius: 0px 0px 3px 3px;
+		border: 1px solid #EBEBEB;
+		margin-bottom: 72px;
+	}
+
+
+
+	body.stopScroll{
+		overflow-y: hidden!important;
+	}
+/*--------------------------------------------------------------------*/
+
+
+
+
+/*--------------------------------------------------------------------*/
+
+/* file upload container */
+.fileUpload{
+	position: relative;
+	height: 180px; width: 240px;
+	background-color: #F9F9F8;
+	border-radius: 3px;
+	border: 1px solid #DEDEDE;
+}
+/* if invalid */
+.fileUpload.hasError{
+	border: 1px solid #AD4834;
+}
+
+/* interaction styles */
+.fileUpload:hover{
+	background-color: #FCFCFC;
+}
+.fileUpload:active{
+	background-color: #EBEBEB;
+}
+
+/* make file input invisibly overlay everything */
+.fileUpload>input{
+	display: block;
+	height: 100%; width: 100%;
+	position: absolute; top: 0; left: 0;
+	z-index: 2;
+	opacity: 0;
+	cursor: pointer;
+}
+
+
+/* 
+	Last div is with drag and drop enabled, first div is for incompatibility
+	 	--> start by hiding first div (only visible if .fileUpload also has class .disabled)
+*/
+.fileUpload>div:first-of-type{
+	display: none;
+}
+.fileUpload>div:last-child{
+	cursor: pointer;
+	display: block;
+	height: 90%; width: 90%;
+	position: relative;
+	top: 5%; left: 5%;
+	border: 2px dashed #DEDEDE;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+/* on file hover over, change background color style */
+.fileUpload>div:last-child.hover{
+	background-color: #EBEBEB;
+}
+
+/* text element */
+.fileUpload>div:last-child>p{
+	font-size: 11px;
+	color: #787878;
+	text-align: center;
+	margin-top: 18px;
+	line-height: 18px;
+}
+/* bolded text styles */
+.fileUpload>div:last-child>p>b{
+	font-size: 13px;
+	display: inline-block;
+	max-width: 180px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	position: relative;
+	top: 4px;
+}
+/* image icon styles */
+.fileUpload>div:last-child>img{
+	width: 60px;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 18px;
+	opacity: 0.6;
+}
+
+
+/* if drag and drop unsupported, hide last div and show first */
+.fileUpload.disabled>div:last-child{
+	display: none;
+}
+.fileUpload.disabled>div:first-of-type{
+	display: block;
+	height: 90%; width: 90%;
+	position: relative;
+	top: 5%; left: 5%;
+	border: 2px dashed #DEDEDE;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+/* compatibility div text styling */
+.fileUpload.disabled>div:first-of-type>p{
+	font-size: 13px;
+	text-align: center;
+	top: 72px;
+	position: relative;
+	color: #787878;
+}
+
+
+
+	</pre>
+	<pre>
+make sure u have jquery loaded! :)
+$(document).ready(function() {
+
+	// for toggling dropdowns
+	$('.formDropdown>p').click(function() {
+		$(this).parent().toggleClass('collapsed');
+		if ($(this).parent().hasClass('multiSelect')) {
+			$('body').addClass('stopScroll');
+		};
+	});
+
+
+	//-----------------------------------single select dropdown code-----------------------------------
+
+		function updateSingleSelectVals() {
+
+			// set the option value in the select dropdown associated with this, so post submissions can read it
+
+			var val = $(this).children('p').attr('data-selectedValue');
+			var txt = $(this).children('p').children('span:first-child').text();
+			$(this).children('select').html('&lt;option value="'+val+'" selected="selected">'+txt+'&lt;/option>');
+		}
+
+		//initialization
+		$('.formDropdown.singleSelect').each(updateSingleSelectVals);
+
+
+		// handling changes
+		$('.formDropdown.singleSelect>ul>li').click(function() {
+			$(this).parent().siblings('p').children('span:first-child').text($(this).text());
+			$(this).parent().siblings('p').attr('data-selectedValue', $(this).attr('data-value'));
+			$(this).siblings('.isSelected').removeAttr('class');
+			$(this).attr('class', 'isSelected');
+			$(this).parent().parent().addClass('collapsed');
+
+			$('.formDropdown.singleSelect').each(updateSingleSelectVals);
+		});
+
+	//-----------------------------------multi select dropdown code-----------------------------------
+
+		function updateMultiSelectVals() {
+			var selctedValsArr = $(this).children('p').attr('data-selectedValue').split('/(*)/').map(function(thisItem) {
+				return thisItem.trim();
+			});
+			var selectedTxtsArr = $(this).children('p').children('span:first-child').text().split(', ');
+
+			var htmlTxt = selctedValsArr.reduce(function(prev, curr, i) {
+				var toRet = '&lt;option value="'+curr+'" selected="selected">'+selectedTxtsArr[i]+'&lt;/option>';
+				return prev + toRet;
+			}, '');
+			$(this).children('select').html(htmlTxt);
+
+		};
+
+		//initialization
+		$('.formDropdown.multiSelect').each(updateMultiSelectVals);
+
+
+		//handling events
+		$('.formDropdown.multiSelect>div>a').click(function() {
+			$(this).parents('.formDropdown.multiSelect').addClass('collapsed');
+			$('body').removeClass('stopScroll')
+
+			var selectedVals = [];
+			var selectedTxts = [];
+			$(this).siblings('ul').children('li.isSelected').each(function() {
+				selectedVals.push($(this).attr('data-value'));
+				selectedTxts.push($(this).text());
+			});
+
+
+			$(this).parents('.formDropdown.multiSelect').children('p').attr('data-selectedValue', selectedVals.join(' /(*)/ '));
+			$(this).parent().siblings('p').children('span:first-child').text(selectedTxts.join(', '));
+
+			$('.formDropdown.multiSelect').each(updateMultiSelectVals);
+		});
+
+		$('.formDropdown.multiSelect>div>ul>li').click(function() {
+			$(this).toggleClass('isSelected');
+		});
+
+
+
+
+	//-----------------------------------upload dropdown code-----------------------------------
+		var inptChgFunc; //what to do when input changes -- depends on whether or not drag and drop is complatible
+
+		// gray dropzone on file hover function
+		function FileDragHover(e) {
+			e.stopPropagation();
+			e.preventDefault();
+			$(e.currentTarget).siblings('div:last-child')[0].className = (e.type == "dragover" ? "hover" : "");
+		};
+		function init() {
+			// enable drag and drop styling
+			$('.fileUpload').removeClass('disabled');
+
+			// add drag and drop styling handler for each drop zone
+			$('.fileUpload>input[type="file"]').each(function() {
+				var drg = $(this)[0];
+				drg.addEventListener("dragover", FileDragHover, false);
+				drg.addEventListener("dragleave", FileDragHover, false);
+				drg.addEventListener("drop", function(e) {
+					$(e.currentTarget).siblings('div:last-child')[0].className = "";
+				});
+			});
+
+			// make file selected indicator use file name
+			inptChgFunc = function(e) {
+				var flName = $(this).val().split('/').pop().split('\\').pop();
+				$(this).parent().find('.msgForEnabled').html('&lt;b>'+flName+'&lt;/b>&lt;br>File selected');
+				$(this).parent().find('.msgForEnabled').siblings('img')[0].src = "https://maxcdn.icons8.com/iOS7/PNG/75/Files/check_file-75.png";
+			};
+		};
+
+		//check if drag and drop is compatible and do accordingly
+		if (window.File &amp;&amp; window.FileList &amp;&amp; window.FileReader)
+			init();
+		else
+			inptChgFunc = function() { //make a basic file selected indicator
+				$(this).parent().find('.msgForDisabled').text('File selected. Click to change');
+			};
+
+		// handle file input changes
+		$('.fileUpload>input[type="file"]').change(inptChgFunc);
+});
+
+
+
+
+
+//--arr.proto.reduce() polyfill--
+
+// Production steps of ECMA-262, Edition 5, 15.4.4.21
+// Reference: http://es5.github.io/#x15.4.4.21
+if (!Array.prototype.reduce) {
+	Array.prototype.reduce = function(callback /*, initialValue*/) {
+		'use strict';
+		if (this == null) {
+			throw new TypeError('Array.prototype.reduce called on null or undefined');
+		}
+		if (typeof callback !== 'function') {
+			throw new TypeError(callback + ' is not a function');
+		}
+		var t = Object(this), len = t.length >>> 0, k = 0, value;
+		if (arguments.length == 2) {
+			value = arguments[1];
+		}
+		else {
+			while (k &lt; len &amp;&amp; !(k in t)) {
+				k++; 
+			}
+			if (k >= len) {
+				throw new TypeError('Reduce of empty array with no initial value');
+			}
+			value = t[k++];
+		}
+		for (; k &lt; len; k++) {
+			if (k in t) {
+				value = callback(value, t[k], k, t);
+			}
+		}
+		return value;
+	};
+}
+
+
+
+//--arr.proto.map() polyfill--
+
+// Production steps of ECMA-262, Edition 5, 15.4.4.19
+// Reference: http://es5.github.io/#x15.4.4.19
+if (!Array.prototype.map) {
+
+  Array.prototype.map = function(callback, thisArg) {
+
+    var T, A, k;
+
+    if (this == null) {
+      throw new TypeError(' this is null or not defined');
+    }
+
+    // 1. Let O be the result of calling ToObject passing the |this| 
+    //    value as the argument.
+    var O = Object(this);
+
+    // 2. Let lenValue be the result of calling the Get internal 
+    //    method of O with the argument "length".
+    // 3. Let len be ToUint32(lenValue).
+    var len = O.length >>> 0;
+
+    // 4. If IsCallable(callback) is false, throw a TypeError exception.
+    // See: http://es5.github.com/#x9.11
+    if (typeof callback !== 'function') {
+      throw new TypeError(callback + ' is not a function');
+    }
+
+    // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
+    if (arguments.length > 1) {
+      T = thisArg;
+    }
+
+    // 6. Let A be a new array created as if by the expression new Array(len) 
+    //    where Array is the standard built-in constructor with that name and 
+    //    len is the value of len.
+    A = new Array(len);
+
+    // 7. Let k be 0
+    k = 0;
+
+    // 8. Repeat, while k &lt; len
+    while (k &lt; len) {
+
+      var kValue, mappedValue;
+
+      // a. Let Pk be ToString(k).
+      //   This is implicit for LHS operands of the in operator
+      // b. Let kPresent be the result of calling the HasProperty internal 
+      //    method of O with argument Pk.
+      //   This step can be combined with c
+      // c. If kPresent is true, then
+      if (k in O) {
+
+        // i. Let kValue be the result of calling the Get internal 
+        //    method of O with argument Pk.
+        kValue = O[k];
+
+        // ii. Let mappedValue be the result of calling the Call internal 
+        //     method of callback with T as the this value and argument 
+        //     list containing kValue, k, and O.
+        mappedValue = callback.call(T, kValue, k, O);
+
+        // iii. Call the DefineOwnProperty internal method of A with arguments
+        // Pk, Property Descriptor
+        // { Value: mappedValue,
+        //   Writable: true,
+        //   Enumerable: true,
+        //   Configurable: true },
+        // and false.
+
+        // In browsers that support Object.defineProperty, use the following:
+        // Object.defineProperty(A, k, {
+        //   value: mappedValue,
+        //   writable: true,
+        //   enumerable: true,
+        //   configurable: true
+        // });
+
+        // For best browser support, use the following:
+        A[k] = mappedValue;
+      }
+      // d. Increase k by 1.
+      k++;
+    }
+
+    // 9. return A
+    return A;
+  };
+}
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript" src="view.js"></script>
+</body>
+</html>

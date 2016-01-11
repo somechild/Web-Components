@@ -1,0 +1,396 @@
+<!doctype html>
+<html>
+<head>
+	<title>M_1</title>
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 72px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #969696;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 11px;
+			text-align: center;
+			margin-top: 24px;
+			color: #787878;
+		}
+		b{
+			font-weight: bold;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+
+		
+
+		/*-----  upper navigation bar  -----*/
+		#header *{
+			font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,AppleGothic,sans-serif!important;
+		}
+		#header{
+			position: fixed;top: 0; left: 0; /*pinned to the top*/
+			width: 100%; height: 48px; /*### -- header height -- ###*/
+			overflow: hidden; overflow-x: auto;
+			box-shadow: 0px 1px 6px -3px #424242; /*### -- header box shadow -- ###*/
+			background-color: #f9fbfb; /*### -- header background color -- ###*/
+			z-index: 5; /*### -- header z-index -- ###*/
+		}
+		#header>div{
+			position: relative;
+			vertical-align: center;
+			margin: 0 auto;
+			height: 48px;  width: 100%;  /*### -- match header height and width -- ###*/
+			max-width: 1080px; min-width: 480px;  /*### -- adjust min-width based on how many items you decide to put in the navs -- ###*/
+		}
+
+
+		/*Home icon*/
+		#header>div>a{
+			display: block;
+			height: 48px; width: 48px;  /*### -- squared as per current header height -- ###*/
+			text-align: center; line-height: 48px;
+			float: left;
+			box-shadow: 0px 0px 6px -4px #424242;
+			-webkit-transition: all .12s;
+			   -moz-transition: all .12s;
+			    -ms-transition: all .12s;
+			     -o-transition: all .12s;
+			        transition: all .12s;
+		}
+		#header>div>a:hover{
+			box-shadow: 0px 0px 6px -3px #424242;
+		}
+		#header>div>a>img{
+			width: 18px; height: 18px;  /*### -- centered based on current header height -- ###*/
+			margin-top: 15px;
+		}
+
+
+
+		/* Nav opts */
+		#header>div>ul{
+			display: block;
+			position: relative;
+			height: 48px; width: 396px;  /*### -- this is the nav buttons container --> same height as header, width to be changed based on ammount of items in navs
+				(**)
+					each additional one is 72px
+				(**)
+			-- ###*/
+			float: right;
+			overflow: hidden;
+		}
+		#header>div>ul>p{
+			display: block;
+			height: 48px; float: left; line-height: 48px; text-align: center; width: 36px;  /*### -- this is the little text that comes before the nav links, format the ul width and all accordingly -- ###*/
+			color: #CCCCCC;
+			font-size: 9px;
+			cursor: default;
+		}
+		#header>div>ul>li{
+			height: 48px; line-height: 48px;  /*### -- the height and width of the actual list items, format appropriately (height same as header height) -- ###*/
+			width: 72px; text-align: center;
+			float: left;
+			font-size: 11px;  /*### -- font size of links -- ###*/
+			position: relative;
+		}
+		#header>div>ul>li>a{
+			display: block; height: 100%; width: 100%;
+			color: #8ca4ac;  /*### -- default text color of links -- ###*/
+			text-decoration: none;
+
+			-webkit-transition: all .12s, outline 0s;
+			   -moz-transition: all .12s, outline 0s;
+			    -ms-transition: all .12s, outline 0s;
+			     -o-transition: all .12s, outline 0s;
+			        transition: all .12s, outline 0s;
+		}
+		#header>div>ul>li>span{
+			display: block;
+			position: absolute;
+			bottom: 0; left: 0;
+			width: 40%;
+			margin-left: 30%;
+			height: 1px;
+			background-color: #8ca4ac;  /*### -- color of border below links -- ###*/
+			-webkit-transition: all .12s;
+			   -moz-transition: all .12s;
+			    -ms-transition: all .12s;
+			     -o-transition: all .12s;
+			        transition: all .12s;
+		}
+		#header>div>ul>li:hover>a{
+			color: #89b3c1;  /*### -- color of links on hover -- ###*/
+		}
+		#header>div>ul>li:hover>span{
+			background-color: #89b3c1;  /*### -- color of bottom border on hover -- ###*/
+			width: 60%; margin-left: 20%;
+			height: 2px
+		}
+		#header>div>ul>li>a:active{
+			color: #398CA6;  /*### -- color of links on active -- ###*/
+		}
+		#currentPageIndicator>a{
+			color: #89b3c1!important;  /*### -- color of currently selected link item -- ###*/
+			font-weight: bold;
+		}
+		#currentPageIndicator>span{
+			background-color: #89b3c1!important;  /*### -- bottom border color of currently selected link item -- ###*/
+			width: 60%!important; margin-left: 20%!important;
+			height: 2px!important;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<h1>1. &ndash; 'this'</h1>
+	
+	<div id="header">
+		<div>
+			<a href=""><img src="https://pixabay.com/static/uploads/photo/2014/04/03/00/41/house-309113_960_720.png"></a>
+			<!-- Probably want to use your own custom icon as this one is rediculously large -->
+			<ul>
+				<p>Links:</p>
+				<li id="currentPageIndicator">
+					<a href="#/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Top</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#bttns/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Buttons</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#mns/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Menus</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#frms/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Form Fields</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#txtblckcntnrs/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Text blocks</a>
+					<span></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<pre>
+&lt;!-- 
+	make sure jQuery is loaded. modify as you wish :)
+--&gt;
+
+&lt;div id="header">
+	&lt;div>
+		&lt;a href="index.html">&lt;img src="https://pixabay.com/static/uploads/photo/2014/04/03/00/41/house-309113_960_720.png">&lt;/a>
+		&lt;!-- Probably want to use your own custom icon as this one is rediculously large -->
+		&lt;ul>
+			&lt;p>Links:&lt;/p>
+			&lt;li id="currentPageIndicator">
+				&lt;a href="#/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Top&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+			&lt;li>
+				&lt;a href="#bttns/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Buttons&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+			&lt;li>
+				&lt;a href="#mns/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Menus&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+			&lt;li>
+				&lt;a href="#frms/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Form Fields&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+			&lt;li>
+				&lt;a href="#txtblckcntnrs/" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Text blocks&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+		&lt;/ul>
+	&lt;/div>
+&lt;/div>
+
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+
+
+
+/*-----  upper navigation bar  -----*/
+#header *{
+	font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,AppleGothic,sans-serif!important;
+}
+#header{
+	position: fixed;top: 0; left: 0; /*pinned to the top*/
+	width: 100%; height: 48px; /*### -- header height -- ###*/
+	overflow: hidden; overflow-x: auto;
+	box-shadow: 0px 1px 6px -3px #424242; /*### -- header box shadow -- ###*/
+	background-color: #f9fbfb; /*### -- header background color -- ###*/
+	z-index: 5; /*### -- header z-index -- ###*/
+}
+#header>div{
+	position: relative;
+	vertical-align: center;
+	margin: 0 auto;
+	height: 48px;  width: 100%;  /*### -- match header height and width -- ###*/
+	max-width: 1080px; min-width: 480px;  /*### -- adjust min-width based on how many items you decide to put in the navs -- ###*/
+}
+
+
+/*Home icon*/
+#header>div>a{
+	display: block;
+	height: 48px; width: 48px;  /*### -- squared as per current header height -- ###*/
+	text-align: center; line-height: 48px;
+	float: left;
+	box-shadow: 0px 0px 6px -4px #424242;
+	-webkit-transition: all .12s;
+	   -moz-transition: all .12s;
+	    -ms-transition: all .12s;
+	     -o-transition: all .12s;
+	        transition: all .12s;
+}
+#header>div>a:hover{
+	box-shadow: 0px 0px 6px -3px #424242;
+}
+#header>div>a>img{
+	width: 18px; height: 18px;  /*### -- centered based on current header height -- ###*/
+	margin-top: 15px;
+}
+
+
+
+/* Nav opts */
+#header>div>ul{
+	display: block;
+	position: relative;
+	height: 48px; width: 396px;  /*### -- this is the nav buttons container --> same height as header, width to be changed based on ammount of items in navs
+		(**)
+			each additional one is 72px
+		(**)
+	-- ###*/
+	float: right;
+	overflow: hidden;
+}
+#header>div>ul>p{
+	display: block;
+	height: 48px; float: left; line-height: 48px; text-align: center; width: 36px;  /*### -- this is the little text that comes before the nav links, format the ul width and all accordingly -- ###*/
+	color: #CCCCCC;
+	font-size: 9px;
+	cursor: default;
+}
+#header>div>ul>li{
+	height: 48px; line-height: 48px;  /*### -- the height and width of the actual list items, format appropriately (height same as header height) -- ###*/
+	width: 72px; text-align: center;
+	float: left;
+	font-size: 11px;  /*### -- font size of links -- ###*/
+	position: relative;
+}
+#header>div>ul>li>a{
+	display: block; height: 100%; width: 100%;
+	color: #8ca4ac;  /*### -- default text color of links -- ###*/
+	text-decoration: none;
+
+	-webkit-transition: all .12s, outline 0s;
+	   -moz-transition: all .12s, outline 0s;
+	    -ms-transition: all .12s, outline 0s;
+	     -o-transition: all .12s, outline 0s;
+	        transition: all .12s, outline 0s;
+}
+#header>div>ul>li>span{
+	display: block;
+	position: absolute;
+	bottom: 0; left: 0;
+	width: 40%;
+	margin-left: 30%;
+	height: 1px;
+	background-color: #8ca4ac;  /*### -- color of border below links -- ###*/
+	-webkit-transition: all .12s;
+	   -moz-transition: all .12s;
+	    -ms-transition: all .12s;
+	     -o-transition: all .12s;
+	        transition: all .12s;
+}
+#header>div>ul>li:hover>a{
+	color: #89b3c1;  /*### -- color of links on hover -- ###*/
+}
+#header>div>ul>li:hover>span{
+	background-color: #89b3c1;  /*### -- color of bottom border on hover -- ###*/
+	width: 60%; margin-left: 20%;
+	height: 2px
+}
+#header>div>ul>li>a:active{
+	color: #398CA6;  /*### -- color of links on active -- ###*/
+}
+#currentPageIndicator>a{
+	color: #89b3c1!important;  /*### -- color of currently selected link item -- ###*/
+	font-weight: bold;
+}
+#currentPageIndicator>span{
+	background-color: #89b3c1!important;  /*### -- bottom border color of currently selected link item -- ###*/
+	width: 60%!important; margin-left: 20%!important;
+	height: 2px!important;
+}
+
+	</pre>
+	<pre>
+// all js has been embedded in the html entities. just make sure u have jquery loaded! :)
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		// no js for this! :)
+	</script>
+</body>
+</html>

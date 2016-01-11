@@ -1,0 +1,549 @@
+<!doctype html>
+<html>
+<head>
+	<title>B_4 View</title>
+
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		body{
+			background-color: #FCFCFc;
+		}
+		h1{
+			margin-top: 48px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #686869;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 9px;
+			text-align: center;
+			margin-top: 24px;
+			margin-bottom: 12px;
+			color: #212121;
+		}
+		b{
+			font-weight: bold;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+		/* general button styling */
+
+		.cBttn{
+			display: block;
+			text-align: center;
+			text-decoration: none;
+			margin-bottom: 12px; margin-top: 12px;
+
+			position: relative;  /*### -- make sure it's not statically positioned -- ###*/
+			
+			font-size: 10px;
+
+			background-color: #F7F7F7; /*### -- button initial background color -- ###*/
+
+			box-shadow: 0px 3px 9px -6px black;
+
+
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+
+			/*### -- transitions last 240ms -- ###*/
+			-webkit-transition: all .24s;
+			   -moz-transition: all .24s;
+			    -ms-transition: all .24s;
+			     -o-transition: all .24s;
+			        transition: all .24s;
+		}
+		.cBttn>span:last-child{
+			z-index: 0;
+			position: absolute; display: block;
+			height: 100%; width: 100%;
+			top: 0; left: 0;
+			opacity: 0;
+
+			-webkit-transition: all .24s;
+			   -moz-transition: all .24s;
+			    -ms-transition: all .24s;
+			     -o-transition: all .24s;
+			        transition: all .24s;
+		}
+
+
+
+		.cBttn.disd{
+			color: #EB3D34; /*### -- text color for disabled -- ###*/
+			cursor: default!important;
+			border: 1px solid #E6B3B1; /*### -- disabled bttn border -- ###*/
+		}
+		/* Background overlay color filter for disabled items -> makes bttn a bit redder */
+		.cBttn.disd>span:last-child{
+			background-color: #C9140A; /*### -- filter color -- ###*/
+			opacity: 0.03;
+		}
+
+
+		.cBttn.enbd{
+			color: #65853E; /*### -- text color for enabled -- ###*/
+			cursor: pointer;
+			border: 1px solid #BECFA9; /*### -- enabled bttn border -- ###*/
+		}
+
+
+		.cBttn.rectd{
+			width: 78px; height: 42px; line-height: 42px; /*### -- height and width if using a rectangle bttn -- ###*/
+			border-radius: 1px;
+		}
+		.cBttn.rectd>span:last-child{
+			border-radius: 1px; /* match border-radius with it's parent ^ */
+		}
+		
+
+		.cBttn.circld{
+			height: 54px; width: 54px; line-height: 54px;  /*### -- height and width if using a circle bttn -- ###*/
+			border-radius: 100%;
+		}
+		.circld>span:last-child{
+			border-radius: 100%;
+		}
+
+
+		/* make sure the text shows above the filter */
+		.cBttn>span:first-child{
+			position: relative;
+			z-index: 1;
+		}
+
+
+
+
+
+		
+		/* Disabled button animations  --  modify as needed */
+		.cBttn.disd:hover{
+			box-shadow: 0px 1px 12px -6px red;
+			border: 1px solid #F5EBEB;
+			color: #9C7270;
+			-webkit-animation: cbtn-ss .24s linear 3;
+			-moz-animation: cbtn-ss .24s linear 3;
+			-ms-animation: cbtn-ss .24s linear 3;
+			-o-animation: cbtn-ss .24s linear 3;
+			animation: cbtn-ss .24s linear 3;
+		}
+		.cBttn.disd:hover>span:last-child{
+			opacity: 0.12;
+		}
+
+		.cBttn.disd:active{
+			box-shadow: inset 0px 0px 12px -3px red;
+			-webkit-animation: none!important;
+			-moz-animation: none!important;
+			-ms-animation: none!important;
+			-o-animation: none!important;
+			animation: none!important;
+		}
+		
+
+		
+		/* Enabled button animations  --  modify as needed */
+		.cBttn.enbd:hover{
+			background-color: #FAFAFA;
+			box-shadow: 0px 3px 18px -6px #424242;
+			color: #CDDEBA;
+			border: 1px solid #F3F7ED;
+		}
+		.cBttn.enbd:active{
+			box-shadow: 0px 1px 12px -9px #111;
+		}
+		
+
+		@-webkit-keyframes cbtn-ss {
+			0% {
+				left: 0px;
+			}
+			34% {
+				left: -2px;
+			}
+			66%{
+				left: 2px;
+			}
+			100%{
+				left: 0px;
+			}
+		}
+		@-moz-keyframes cbtn-ss {
+			0% {
+				left: 0px;
+			}
+			34% {
+				left: -2px;
+			}
+			66%{
+				left: 2px;
+			}
+			100%{
+				left: 0px;
+			}
+		}
+		@-ms-keyframes cbtn-ss {
+			0% {
+				left: 0px;
+			}
+			34% {
+				left: -2px;
+			}
+			66%{
+				left: 2px;
+			}
+			100%{
+				left: 0px;
+			}
+		}
+		@-o-keyframes cbtn-ss {
+			0% {
+				left: 0px;
+			}
+			34% {
+				left: -2px;
+			}
+			66%{
+				left: 2px;
+			}
+			100%{
+				left: 0px;
+			}
+		}
+		@keyframes cbtn-ss {
+			0% {
+				left: 0px;
+			}
+			34% {
+				left: -2px;
+			}
+			66%{
+				left: 2px;
+			}
+			100%{
+				left: 0px;
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<h1>4. &ndash; "Disablable"</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<p><b>Disabled</b> &ndash; rectangular</p>
+					<a href="#" class="cBttn rectd disd">
+						<span>Incomplete</span>
+						<span></span>
+					</a>
+
+				</td>
+				<td>
+					<p><b>Enabled</b> &ndash; rectangular</p>
+					<a href="#" class="cBttn rectd enbd">
+						<span>Submit</span>
+						<span></span>
+					</a>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p><b>Disabled</b> &ndash; circular</p>
+					<a href="#" class="cBttn circld disd">
+						<span>Nah</span>
+						<span></span>
+					</a>
+
+				</td>
+				<td>
+					<p><b>Enabled</b> &ndash; circular</p>
+					<a href="#" class="cBttn circld enbd">
+						<span>Yah</span>
+						<span></span>
+					</a>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<pre>
+&lt;a href="#" class="cBttn {shapeClass} {statusClass}"&gt;
+	&lt;span&gt;{bttnText}&lt;/span&gt;
+	&lt;span&gt;&lt;/span&gt;
+&lt;/a&gt;
+
+
+&lt;!-- 
+	{shapeClass} can be: 'circld' or 'rectd'
+	{statusClass} can be: 'enbd' for enabled and 'disd' for disabled buttonss
+--&gt;
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+/* general button styling */
+.cBttn{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	margin-bottom: 12px; margin-top: 12px;
+
+	position: relative;  /*### -- make sure it's not statically positioned -- ###*/
+	
+	font-size: 10px;
+
+	background-color: #F7F7F7; /*### -- button initial background color -- ###*/
+
+	box-shadow: 0px 3px 9px -6px black;
+
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	/*### -- transitions last 240ms -- ###*/
+	-webkit-transition: all .24s;
+	   -moz-transition: all .24s;
+	    -ms-transition: all .24s;
+	     -o-transition: all .24s;
+	        transition: all .24s;
+}
+.cBttn>span:last-child{
+	z-index: 0;
+	position: absolute; display: block;
+	height: 100%; width: 100%;
+	top: 0; left: 0;
+	opacity: 0;
+
+	-webkit-transition: all .24s;
+	   -moz-transition: all .24s;
+	    -ms-transition: all .24s;
+	     -o-transition: all .24s;
+	        transition: all .24s;
+}
+
+
+
+.cBttn.disd{
+	color: #EB3D34; /*### -- text color for disabled -- ###*/
+	cursor: default!important;
+	border: 1px solid #E6B3B1; /*### -- disabled bttn border -- ###*/
+}
+/* Background overlay color filter for disabled items -> makes bttn a bit redder */
+.cBttn.disd>span:last-child{
+	background-color: #C9140A; /*### -- filter color -- ###*/
+	opacity: 0.03;
+}
+
+
+.cBttn.enbd{
+	color: #65853E; /*### -- text color for enabled -- ###*/
+	cursor: pointer;
+	border: 1px solid #BECFA9; /*### -- enabled bttn border -- ###*/
+}
+
+
+.cBttn.rectd{
+	width: 78px; height: 42px; line-height: 42px; /*### -- height and width if using a rectangle bttn -- ###*/
+	border-radius: 1px;
+}
+.cBttn.rectd>span:last-child{
+	border-radius: 1px; /* match border-radius with it's parent ^ */
+}
+
+
+.cBttn.circld{
+	height: 54px; width: 54px; line-height: 54px;  /*### -- height and width if using a circle bttn -- ###*/
+	border-radius: 100%;
+}
+.circld>span:last-child{
+	border-radius: 100%;
+}
+
+
+/* make sure the text shows above the filter */
+.cBttn>span:first-child{
+	position: relative;
+	z-index: 1;
+}
+
+
+
+
+
+
+/* Disabled button animations  --  modify as needed */
+.cBttn.disd:hover{
+	box-shadow: 0px 1px 12px -6px red;
+	border: 1px solid #F5EBEB;
+	color: #9C7270;
+	-webkit-animation: cbtn-ss .24s linear 3;
+	-moz-animation: cbtn-ss .24s linear 3;
+	-ms-animation: cbtn-ss .24s linear 3;
+	-o-animation: cbtn-ss .24s linear 3;
+	animation: cbtn-ss .24s linear 3;
+}
+.cBttn.disd:hover>span:last-child{
+	opacity: 0.12;
+}
+
+.cBttn.disd:active{
+	box-shadow: inset 0px 0px 12px -3px red;
+	-webkit-animation: none!important;
+	-moz-animation: none!important;
+	-ms-animation: none!important;
+	-o-animation: none!important;
+	animation: none!important;
+}
+
+
+
+/* Enabled button animations  --  modify as needed */
+.cBttn.enbd:hover{
+	background-color: #FAFAFA;
+	box-shadow: 0px 3px 18px -6px #424242;
+	color: #CDDEBA;
+	border: 1px solid #F3F7ED;
+}
+.cBttn.enbd:active{
+	box-shadow: 0px 1px 12px -9px #111;
+}
+
+
+/* keyframe animation for disabled bttn shaking */
+
+@-webkit-keyframes cbtn-ss {
+	0% {
+		left: 0px;
+	}
+	34% {
+		left: -2px;
+	}
+	66%{
+		left: 2px;
+	}
+	100%{
+		left: 0px;
+	}
+}
+@-moz-keyframes cbtn-ss {
+	0% {
+		left: 0px;
+	}
+	34% {
+		left: -2px;
+	}
+	66%{
+		left: 2px;
+	}
+	100%{
+		left: 0px;
+	}
+}
+@-ms-keyframes cbtn-ss {
+	0% {
+		left: 0px;
+	}
+	34% {
+		left: -2px;
+	}
+	66%{
+		left: 2px;
+	}
+	100%{
+		left: 0px;
+	}
+}
+@-o-keyframes cbtn-ss {
+	0% {
+		left: 0px;
+	}
+	34% {
+		left: -2px;
+	}
+	66%{
+		left: 2px;
+	}
+	100%{
+		left: 0px;
+	}
+}
+@keyframes cbtn-ss {
+	0% {
+		left: 0px;
+	}
+	34% {
+		left: -2px;
+	}
+	66%{
+		left: 2px;
+	}
+	100%{
+		left: 0px;
+	}
+}
+	</pre>
+	<pre>
+// no js for this! :)
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		// no js for this! :)
+	</script>
+</body>
+</html>

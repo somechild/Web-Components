@@ -1,0 +1,316 @@
+<!doctype html>
+<html>
+<head>
+	<title>B_2 View</title>
+
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 48px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #969696;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 11px;
+			text-align: center;
+			margin-top: 24px;
+			color: #787878;
+		}
+		b{
+			font-weight: bold;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+
+
+		/* general button styling */
+
+		.rBttn{
+			display: block;
+			
+			position: relative;
+
+			text-align: center;
+			text-decoration: none;
+			margin-bottom: 12px; margin-top: 12px;
+			font-size: 11px;
+			background-color: transparent;
+			color: #614518; /*### -- text color of button -- ###*/
+			font-weight: bold;
+		}
+		.rBttn>span:first-child{
+			position: relative;
+			z-index: 1;
+			-webkit-transition: opacity .3s;
+			   -moz-transition: opacity .3s;
+			    -ms-transition: opacity .3s;
+			     -o-transition: opacity .3s;
+			        transition: opacity .3s;
+		}
+
+
+
+		/*styling the layer under the text which will be animated*/
+		.rBttn>span:last-child{
+			display: block; position: absolute;
+			background-color: #edebe6; /*### -- background color of button on hover -- ###*/
+			opacity: 0; z-index: 0;
+
+
+			-webkit-transition: all .3s;
+			   -moz-transition: all .3s;
+			    -ms-transition: all .3s;
+			     -o-transition: all .3s;
+			        transition: all .3s;
+		}
+		.rBttn.uni>span:last-child{
+			width: 120%; height: 120%;
+			left: -10%; top: -10%;
+		}
+		.rBttn.skewdh>span:last-child{
+			width: 120%; height: 150%;
+			left: -10%; top: -25%;
+		}
+		.rBttn.skewdw>span:last-child{
+			width: 150%; height: 120%;
+			left: -25%; top: -10%;
+		}
+
+
+		/* animations */
+		.rBttn:hover>span:last-child{
+			opacity: 1;
+			width: 100%; height: 100%;
+			top: 0; left: 0;
+		}
+		.rBttn:active>span{
+			opacity: 0.3!important;
+		}
+
+
+		/*styling specific for circular buttons*/
+		.rBttn.circld{
+			width: 54px; height: 54px; line-height: 54px;
+			border-radius: 100%;
+		}
+		.rBttn.circld>span:last-child{
+			border-radius: 100%;
+		}
+
+		/*styling specific for rectangular button*/
+		.rBttn.rectd{
+			height: 40px; width: 96px; line-height: 40px;
+			border-radius: 1px;
+		}
+		.rBttn.rectd>span:last-child{
+			border-radius: 1px;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<h1>2. &ndash; "Rooted"</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<p><b>Circle:</b> Uniform</p>
+					<a href="#" class="rBttn circld uni">
+						<span>Go</span>
+						<span></span>
+					</a>
+
+				</td>
+				<td>
+					<p><b>Circle:</b> Skewed, Height-wise</p>
+					<a href="#" class="rBttn circld skewdh">
+						<span>Yes</span>
+						<span></span>
+					</a>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p><b>Rectangle:</b> Uniform</p>
+					<a href="#" class="rBttn rectd uni">
+						<span>Continue</span>
+						<span></span>
+					</a>
+
+				</td>
+				<td>
+					<p><b>Rectangle:</b> Skewed, Width-wise</p>
+					<a href="#" class="rBttn rectd skewdw">
+						<span>Submit</span>
+						<span></span>
+					</a>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<pre>
+
+&lt;a href="#" class="rBttn {shapeClass} {animTypeClass}"&gt;
+	&lt;span&gt;{bttnTxt}&lt;/span&gt;
+	&lt;span&gt;&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!--
+	{shapeClasses} can be 'rectd' or 'circld'
+	{animTypeClass} can be:
+		'uni' for uniform contraction animation
+		'skewdh' for the background which is being animated to be stretched height-wise | #( The 'Yes' button has this class )#
+		'skewdw' for the background to be streched length-wise | #( The 'Submit' button has this class )#
+--&gt;
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+
+/* general button styling */
+
+.rBttn{
+	display: block;
+	
+	position: relative;
+
+	text-align: center;
+	text-decoration: none;
+	margin-bottom: 12px; margin-top: 12px;
+	font-size: 11px;
+	background-color: transparent;
+	color: #614518; /*### -- text color of button -- ###*/
+	font-weight: bold;
+}
+.rBttn>span:first-child{
+	position: relative;
+	z-index: 1;
+	-webkit-transition: opacity .3s;
+	   -moz-transition: opacity .3s;
+	    -ms-transition: opacity .3s;
+	     -o-transition: opacity .3s;
+	        transition: opacity .3s;
+}
+
+
+
+/*styling the layer under the text which will be animated*/
+.rBttn>span:last-child{
+	display: block; position: absolute;
+	background-color: #edebe6; /*### -- background color of button on hover -- ###*/
+	opacity: 0; z-index: 0;
+
+
+	-webkit-transition: all .3s;
+	   -moz-transition: all .3s;
+	    -ms-transition: all .3s;
+	     -o-transition: all .3s;
+	        transition: all .3s;
+}
+.rBttn.uni>span:last-child{
+	width: 120%; height: 120%;
+	left: -10%; top: -10%;
+}
+.rBttn.skewdh>span:last-child{
+	width: 120%; height: 150%;
+	left: -10%; top: -25%;
+}
+.rBttn.skewdw>span:last-child{
+	width: 150%; height: 120%;
+	left: -25%; top: -10%;
+}
+
+
+/* animations */
+.rBttn:hover>span:last-child{
+	opacity: 1;
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+}
+.rBttn:active>span{
+	opacity: 0.3!important;
+}
+
+
+/*styling specific for circular buttons*/
+.rBttn.circld{
+	width: 54px; height: 54px; line-height: 54px;
+	border-radius: 100%;
+}
+.rBttn.circld>span:last-child{
+	border-radius: 100%;
+}
+
+/*styling specific for rectangular button*/
+.rBttn.rectd{
+	height: 40px; width: 96px; line-height: 40px;
+	border-radius: 1px;
+}
+.rBttn.rectd>span:last-child{
+	border-radius: 1px;
+}
+	</pre>
+	<pre>
+// no js for this! :)
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		// no js for this! :)
+	</script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+/*
+	read the comments and CSS to modify as you wish :)
+*/
+
+/* Form container */
+#glowForm{
+	display: block;
+	padding: 48px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/* For a subtle division between fieldsets, change as you wish */
+#glowForm>fieldset{
+	padding-bottom: 36px; margin-bottom: 12px;
+	border-bottom: 1px solid #F7F7F7;
+}
+
+
+
+/*--------------------------------------------------------------------*/
+
+/* Error and confirmation title text styling */
+#glowForm>p.errorTitle{
+	margin-bottom: 24px;
+	color: #E3664D;
+	font-weight: bold;
+	font-size: 13px;
+}
+#glowForm>p.successTitle{
+	margin-bottom: 72px;
+	color: #65AD34;
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+}
+
+
+/* Fieldset titles */
+#glowForm>fieldset>legend{
+	font-size: 15px;
+	color: #576063;
+	font-weight: bold;
+}
+
+
+
+
+/* Texts describing inputs */
+
+#glowForm>fieldset>p{
+	color: #687073;
+	font-size: 13px;
+	margin-bottom: 6px; margin-top: 18px;
+}
+/* Input description text has error style */
+#glowForm>fieldset>p.hasError{
+	color: #AD4834;
+	font-style: italic;
+}
+/*--------------------------------------------------------------------*/
+
+
+
+
+
+
+/*--------------------------------------------------------------------*/
+/* for text input fields */
+
+#glowForm>fieldset>input[type="text"], #glowForm>fieldset>input[type="password"], #glowForm>fieldset>input[type="email"]{
+	width: 240px;
+	height: 24px;
+	padding: 1px 0 0 12px;
+
+	outline: none;
+	border: 1px solid #C1C4C7;
+	border-radius: 6px;
+	box-shadow: inset 1px 3px 3px -3px #DEDEDE;
+
+	background-color: white;
+
+	font-size: 12px;
+	color: #7F98AD;
+}
+/* textareas are similar to text input fields */
+#glowForm>fieldset>textarea{
+	resize: none;
+	outline: none;
+	min-height: 72px; min-width: 240px;
+	padding: 9px 0px 0px 12px;
+
+
+	border: 1px solid #C1C4C7;
+	border-radius: 6px;
+	box-shadow: inset 1px 3px 3px -3px #DEDEDE;
+
+	background-color: white;
+
+	font-size: 12px;
+	color: #7F98AD;
+}
+
+/* if a text input field is invalid style */
+#glowForm>fieldset>input[type="text"].hasError, #glowForm>fieldset>input[type="password"].hasError, #glowForm>fieldset>input[type="email"].hasError, #glowForm>fieldset>textarea.hasError{
+	border: 1px solid #AD4834!important;
+	color: #AD4834;
+}
+
+/* on focus style for text inputs */
+#glowForm>fieldset>input[type="text"]:focus, #glowForm>fieldset>input[type="password"]:focus, #glowForm>fieldset>input[type="email"]:focus, #glowForm>fieldset>textarea:focus{
+	box-shadow: 0px 1px 12px -3px #497BA3;
+	border: 1px solid #7F98AD;
+}
+/*--------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------------*/
+
+/* submit button styles */
+
+#glowForm>input[type="submit"]{
+	display: block;
+	height: 36px; width: 84px;
+	outline: none; border: none;
+	cursor: pointer;
+	color: #FAFAFA;
+	background-color: #537591;
+
+	font-size: 13px;
+	font-weight: bold
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+
+	border: 1px solid transparent;
+	border-bottom: 1px solid #627280;
+	border-radius: 6px;
+
+
+	box-shadow: inset 0px -3px 9px -6px #42616B;
+}
+/* disabled submit button */
+#glowForm>input[type="submit"].disabled{
+	cursor: default;
+	background-color: #BFCBD6!important;
+	color: #EDF1F5!important;
+	border: 1px solid #BFCBD6!important;
+	box-shadow: none!important;
+}
+
+
+/* submit button interaction styles */
+#glowForm>input[type="submit"]:hover{
+	border: 1px solid #37444F;
+	box-shadow: inset 0px -6px 12px -6px #42616B;
+	background-color: #5D819E;
+}
+#glowForm>input[type="submit"]:active{
+	background-color: #537591;
+	background-color: #42616B;
+}
+/*--------------------------------------------------------------------*/
+
+
+
+
+
+/*--------------------------------------------------------------------*/
+
+/* custom dropdown styles */
+
+
+.formDropdown{
+	width: calc(240px + 12px); height: 25px;
+	cursor: pointer;
+	position: relative;
+}
+		/* .singleSelect is the pseudo of the normal <select></select> */
+	.formDropdown.singleSelect:not(.collapsed){
+		box-shadow: 0px 1px 12px -3px #497BA3;
+	}
+	/* hide the actual select element inside the pseudo select dropdown */
+	.formDropdown>select{
+		opacity: 0;
+		position: absolute;
+		height: 0; width: 0;
+	}
+
+	/* the selected option which shows when dropdown is collapsed */
+	.formDropdown>p{
+		display: block;
+		width: 240px;
+		height: 24px; line-height: 24px;
+		padding: 1px 0 0 12px;
+		background-color: #F9F9F8;
+		color: #424242;
+		border: 1px solid #CCC;
+		border-radius: 6px;
+		font-size: 11px;
+	}
+	.formDropdown.singleSelect:not(.collapsed)>p{
+		border: 1px solid #7F98AD;
+	}
+
+	/* if selection is invalid */
+	.formDropdown.hasError>p{
+		color: #AD4834;
+		border: 1px solid #AD4834!important;
+	}
+
+	/* for the little down arrow to the very right */
+	.formDropdown>p>span{
+		display: block;
+		float: left;
+	}
+	.formDropdown>p>span:first-child{
+		width: calc(100% - 18px);
+		overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+	}
+	.formDropdown>p>span:last-child{
+		width: 7px;
+		color: #787878;
+	}
+
+
+	/* when dropdown is expanded, style for currently selected option */
+	.formDropdown li.isSelected{
+		background-color: #EBEBEB;
+	}
+
+
+	/* hide dropdown when collapsed */
+	.formDropdown.singleSelect.collapsed>ul{
+		display: none;
+	}
+
+
+	/* dropdown container styling */
+	.formDropdown.singleSelect>ul{
+		display: block;
+		position: absolute;
+		top: 24px;
+		z-index: 2;
+		background-color: #F9F9F8;
+		height: auto; width: calc(240px + 12px);
+		border: 1px solid #7F98AD;
+		border-top: none;
+		border-radius: 0px 0px 6px 6px;
+		box-shadow: 0px 3px 9px -6px #497BA3;
+	}
+	/* dropdown container styling when it has an error */
+	.formDropdown.singleSelect.hasError>ul{
+		border: 1px solid #AD4834!important;
+		border-top: none!important;
+	}
+
+	/* option area titles (for dividing options into groups -- <optgroup></..>) */
+	.formDropdown.singleSelect>ul>p{
+		font-size: 9px;
+		height: 27px; line-height: 33px;
+		padding-left: 6px;
+		color: #787878;
+		font-style: italic;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	/* dropdown options */
+	.formDropdown.singleSelect>ul>li{
+		height: 24px; line-height: 24px;
+		padding-left: 12px;
+		font-size: 11px;
+		color: #424242;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.formDropdown.singleSelect>ul>li:hover{
+		background-color: #EBEBEB;
+	}
+
+
+
+	/* for a multiple select modal */
+
+	.formDropdown.multiSelect.collapsed>div{
+		display: none;
+	}
+
+	/* container */
+	.formDropdown.multiSelect>div{
+		position: fixed; z-index: 6;
+		height: 100%; width: 100%;
+		top: 0; left: 0;
+		background-color: rgba(0, 0, 0, 0.3);
+		cursor: default;
+		overflow: auto;
+	}
+
+	/* multiple select modal title */
+	.formDropdown.multiSelect>div>p{
+		width: 300px; text-align: center;
+		position: relative; margin: 0 auto;
+		margin-top: 108px;
+		background-color: #F9F9F8;
+		padding-top: 12px; padding-bottom: 9px;
+		font-size: 12px;
+		border-radius: 3px 3px 0px 0px;
+		border: 1px solid #EBEBEB;
+		box-shadow: 0px 6px 6px -9px #424242;
+		z-index: 1;
+	}
+
+	/* multiple select option list */
+	.formDropdown.multiSelect>div>ul{
+		width: 300px; display: block;
+		margin: 0 auto; position: relative;
+		background-color: #F3F3F3;
+		border: 1px solid #EBEBEB;
+		box-shadow: 0px 3px 12px -6px black;
+		z-index: 0;
+
+
+		max-height: 240px;
+		overflow-y: scroll;
+	}
+
+	/* option list title */
+	.formDropdown.multiSelect>div>ul>p{
+		height: 36px; line-height: 42px;
+		font-size: 9px;
+		padding-left: 12px;
+		color: #787878;
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+	}
+
+	/* option list options */
+	.formDropdown.multiSelect>div>ul>li{
+		height: 36px; line-height: 36px;
+		padding-left: 12px; padding-right: 12px;
+		font-size: 12px;
+		cursor: pointer;
+
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+	.formDropdown.multiSelect>div>ul>li:hover{
+		background-color: #EBEBEB;
+	}
+
+	/* confirm & close button */
+	.formDropdown.multiSelect>div>a{
+		display: block; width: 300px;
+		margin: 0 auto; position: relative;
+		text-align: center; background-color: #F9F9F8;
+		padding-top: 6px; padding-bottom: 9px;
+		font-size: 11px; cursor: pointer; color: #787878;
+		border-radius: 0px 0px 3px 3px;
+		border: 1px solid #EBEBEB;
+		margin-bottom: 72px;
+	}
+
+
+
+	body.stopScroll{
+		overflow-y: hidden!important;
+	}
+/*--------------------------------------------------------------------*/
+
+
+
+
+/*--------------------------------------------------------------------*/
+
+/* file upload container */
+.fileUpload{
+	position: relative;
+	height: 180px; width: 240px;
+	background-color: #F9F9F8;
+	border-radius: 3px;
+	border: 1px solid #DEDEDE;
+}
+/* if invalid */
+.fileUpload.hasError{
+	border: 1px solid #AD4834;
+}
+
+/* interaction styles */
+.fileUpload:hover{
+	background-color: #FCFCFC;
+}
+.fileUpload:active{
+	background-color: #EBEBEB;
+}
+
+/* make file input invisibly overlay everything */
+.fileUpload>input{
+	display: block;
+	height: 100%; width: 100%;
+	position: absolute; top: 0; left: 0;
+	z-index: 2;
+	opacity: 0;
+	cursor: pointer;
+}
+
+
+/* 
+	Last div is with drag and drop enabled, first div is for incompatibility
+	 	--> start by hiding first div (only visible if .fileUpload also has class .disabled)
+*/
+.fileUpload>div:first-of-type{
+	display: none;
+}
+.fileUpload>div:last-child{
+	cursor: pointer;
+	display: block;
+	height: 90%; width: 90%;
+	position: relative;
+	top: 5%; left: 5%;
+	border: 2px dashed #DEDEDE;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+/* on file hover over, change background color style */
+.fileUpload>div:last-child.hover{
+	background-color: #EBEBEB;
+}
+
+/* text element */
+.fileUpload>div:last-child>p{
+	font-size: 11px;
+	color: #787878;
+	text-align: center;
+	margin-top: 18px;
+	line-height: 18px;
+}
+/* bolded text styles */
+.fileUpload>div:last-child>p>b{
+	font-size: 13px;
+	display: inline-block;
+	max-width: 180px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	position: relative;
+	top: 4px;
+}
+/* image icon styles */
+.fileUpload>div:last-child>img{
+	width: 60px;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 18px;
+	opacity: 0.6;
+}
+
+
+/* if drag and drop unsupported, hide last div and show first */
+.fileUpload.disabled>div:last-child{
+	display: none;
+}
+.fileUpload.disabled>div:first-of-type{
+	display: block;
+	height: 90%; width: 90%;
+	position: relative;
+	top: 5%; left: 5%;
+	border: 2px dashed #DEDEDE;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+/* compatibility div text styling */
+.fileUpload.disabled>div:first-of-type>p{
+	font-size: 13px;
+	text-align: center;
+	top: 72px;
+	position: relative;
+	color: #787878;
+}

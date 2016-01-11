@@ -1,0 +1,545 @@
+<!doctype html>
+<html>
+<head>
+	<title>B_1 View</title>
+
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 48px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #969696;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 9px;
+			text-align: center;
+			margin-top: 24px;
+			margin-bottom: 12px;
+			color: #565656;
+		}
+		b{
+			font-weight: bold;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+		/* general button styling */
+
+		.geBttn{
+			display: block;
+			text-align: center;
+			text-decoration: none;
+			margin-bottom: 12px; margin-top: 12px;
+
+			position: relative;  /*### -- make sure it's not statically positioned -- ###*/
+			
+			font-size: 10px;
+
+			color: #F7F7F7; /*### -- text color -- ###*/
+
+			background-color: #2a506b; /*### -- button initial background color -- ###*/
+
+			box-shadow: 0px 1px 6px -6px black;
+
+			/*### -- transitions last 240ms -- ###*/
+			-webkit-transition: all .24s;
+			   -moz-transition: all .24s;
+			    -ms-transition: all .24s;
+			     -o-transition: all .24s;
+			        transition: all .24s;
+		}
+
+		/* some basic styling to make the button rectangular */
+		.geBttn.rectd{
+			width: 96px; height: 48px;
+			line-height: 48px;
+		}
+		.geBttn.rectd, .geBttn.rectd>span:last-child, .geBttn.rectd>span:last-child>span{
+			border-radius: 2px;
+		}
+		/* some basic styling for circular versions of these buttons */
+		.geBttn.circld{
+			width: 72px; height: 72px; line-height: 72px;
+			font-size: 11px;
+		}
+		.geBttn.circld, .geBttn.circld>span:last-child, .geBttn.circld>span:last-child>span{
+			border-radius: 2px;
+			border-radius: 100%;
+		}
+
+		/* general button transitions */
+		.geBttn:hover{
+			color: #EBEBEB;
+			background-color: #4d6a7e;
+			box-shadow: 0px 0px 18px -3px #424242;
+		}
+		.geBttn:active{
+			background-color: #2c3b45;
+			box-shadow: 0px 0px 9px -6px black;
+		}
+
+
+
+
+
+
+
+		/*
+			now for the 'gator eye' animation effect
+			::the element which will pull accross the background of the button::
+		*/
+
+		/*ensure the text is on top*/
+		.geBttn>span:first-child{ 
+			position: relative;
+			z-index: 1;
+		}
+
+		/*general styling for the layer below the text*/
+		.geBttn>span:last-child{
+			display: block; position: absolute;
+			z-index: 0;
+
+			background-color: #111b3c; /*### -- background color for the layer that will pull over -- ###*/
+
+			opacity: 0.6; /*modify opacity as you wish*/
+
+			-webkit-transition: all .3s;
+			   -moz-transition: all .3s;
+			    -ms-transition: all .3s;
+			     -o-transition: all .3s;
+			        transition: all .3s;
+		}
+		/*a third layer for just a bit of extra effect :) (the white strip that passes through at the end)*/
+		.geBttn>span:last-child>span{
+			display: block;position: absolute;
+			z-index: 0;
+			background-color: rgba(270, 270, 270, 0.06); /*/*### -- Opacity configuration of the little white layer which glosses at the end of every hover animation  --###*/
+
+			-webkit-transition: all .6s;
+			   -moz-transition: all .6s;
+			    -ms-transition: all .6s;
+			     -o-transition: all .6s;
+			        transition: all .6s;
+		}
+
+
+		/* initially position & animate the underlying layer based on animation direction class*/
+		
+/*////// square btns //////*/
+
+		/*////// left to right //////*/
+		.geBttn.ltr>span:last-child{
+			height: 100%; width: 0;
+			left: 0; top: 0;
+		}
+
+		.geBttn.ltr:hover>span:last-child{
+			width: 100%;
+		}
+
+		/*////// right to left //////*/
+		.geBttn.rtl>span:last-child{
+			height: 100%; width: 0;
+			left: 100%; top: 0;
+		}
+
+		.geBttn.rtl:hover>span:last-child{
+			width: 100%;
+			left: 0;
+		}
+
+		/*////// top to bottom //////*/
+		.geBttn.ttb>span:last-child{
+			height: 0; width: 100%;
+			left: 0; top: 0;
+		}
+
+		.geBttn.ttb:hover>span:last-child{
+			height: 100%;
+		}
+
+		/*////// bottom to top //////*/
+		.geBttn.btt>span:last-child{
+			height: 0; width: 100%;
+			left: 0; top: 100%;
+		}
+
+		.geBttn.btt:hover>span:last-child{
+			height: 100%;
+			top: 0;
+		}
+
+
+
+		
+/*////// circle btns //////*/
+		
+		/*////// inside -> grow outwards //////*/
+		.geBttn.io>span:last-child{
+			width: 0; height: 0;
+			left: 50%; top: 50%;
+		}
+
+		.geBttn.io:hover>span:last-child{
+			width: 100%; height: 100%;
+			left: 0; top: 0;
+		}
+
+
+		/*////// outside -> grow and slide in //////*/
+		.geBttn.oi{
+			overflow: hidden; /*will have to be hidden for this*/
+		}
+		.geBttn.oi>span:last-child{
+			width: 0; height: 0;
+			left: 0; top: 0;
+		}
+
+		.geBttn.oi:hover>span:last-child{
+			width: 100%; height: 100%;
+		}
+
+
+
+
+		/*    For all buttons, have the little gloss third layer animation item at the end do the same thing (as defined below)    */
+
+		
+		.geBttn>span:last-child>span{ 
+			height: 0; width: 0;
+			left: 50%; top: 50%;
+		}
+		.geBttn:hover>span:last-child>span{
+			top: 0; left: 0;
+			height: 100%; width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<h1>1. &ndash; "Gator Eyes"</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<p><b>Square:</b> Left-to-Right</p>
+					<a href="#" class="geBttn rectd ltr">
+						<span>Continue</span>
+						<span><span></span></span>
+					</a>
+
+				</td>
+				<td>
+					<p><b>Square:</b> Right-to-Left</p>
+					<a href="#" class="geBttn rectd rtl">
+						<span>Submit</span>
+						<span><span></span></span>
+					</a>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p><b>Square:</b> Top-to-Bottom</p>
+					<a href="#" class="geBttn rectd ttb">
+						<span>Next</span>
+						<span><span></span></span>
+					</a>
+
+				</td>
+				<td>
+					<p><b>Square:</b> Bottom-to-Top</p>
+					<a href="#" class="geBttn rectd btt">
+						<span>Yolo</span>
+						<span><span></span></span>
+					</a>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p><b>Circle:</b> Inside-to-Grow-Outwards</p>
+					<a href="#" class="geBttn circld io">
+						<span>Yes</span>
+						<span><span></span></span>
+					</a>
+
+				</td>
+				<td>
+					<p><b>Circle:</b> Outisde-to-Grow-In</p>
+					<a href="#" class="geBttn circld oi">
+						<span>Go</span>
+						<span><span></span></span>
+					</a>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<pre>
+&lt;a href="#" class="geBttn {class1} {class2}"&gt;
+	&lt;span&gt;{bttnText}&lt;/span&gt;
+	&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/a&gt;
+
+
+&lt;!-- 
+	class1 and class2 can be used in the following pairs:
+	
+	rectd, ltr | rectd, ttr | rectd, ttb| rectd, btt| circld, io| circld, oi
+--&gt;
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+/* general button styling */
+
+.geBttn{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	margin-bottom: 12px; margin-top: 12px;
+
+	position: relative;  /*### -- make sure it's not statically positioned -- ###*/
+	
+	font-size: 10px;
+
+	color: #F7F7F7; /*### -- text color -- ###*/
+
+	background-color: #2a506b; /*### -- button initial background color -- ###*/
+
+	box-shadow: 0px 1px 6px -6px black;
+
+	/*### -- transitions last 240ms -- ###*/
+	-webkit-transition: all .24s;
+	   -moz-transition: all .24s;
+	    -ms-transition: all .24s;
+	     -o-transition: all .24s;
+	        transition: all .24s;
+}
+
+/* some basic styling to make the button rectangular */
+.geBttn.rectd{
+	width: 96px; height: 36px;
+	line-height: 36px;
+}
+.geBttn.rectd, .geBttn.rectd>span:last-child, .geBttn.rectd>span:last-child>span{
+	border-radius: 2px;
+}
+/* some basic styling for circular versions of these buttons */
+.geBttn.circld{
+	width: 60px; height: 60px; line-height: 60px;
+	font-size: 11px;
+}
+.geBttn.circld, .geBttn.circld>span:last-child, .geBttn.circld>span:last-child>span{
+	border-radius: 2px;
+	border-radius: 100%;
+}
+
+/* general button transitions */
+.geBttn:hover{
+	color: #EBEBEB;
+	background-color: #4d6a7e;
+	box-shadow: 0px 0px 18px -3px #424242;
+}
+.geBttn:active{
+	background-color: #2c3b45;
+	box-shadow: 0px 0px 9px -6px black;
+}
+
+
+
+
+
+
+
+/*
+	now for the 'gator eye' animation effect
+	::the element which will pull accross the background of the button::
+*/
+
+/*ensure the text is on top*/
+.geBttn>span:first-child{ 
+	position: relative;
+	z-index: 1;
+}
+
+/*general styling for the layer below the text*/
+.geBttn>span:last-child{
+	display: block; position: absolute;
+	z-index: 0;
+
+	background-color: #111b3c; /*### -- background color for the layer that will pull over -- ###*/
+
+	opacity: 0.6; /*modify opacity as you wish*/
+
+	-webkit-transition: all .3s;
+	   -moz-transition: all .3s;
+	    -ms-transition: all .3s;
+	     -o-transition: all .3s;
+	        transition: all .3s;
+}
+/*a third layer for just a bit of extra effect :) (the white strip that passes through at the end)*/
+.geBttn>span:last-child>span{
+	display: block;position: absolute;
+	z-index: 0;
+	background-color: rgba(270, 270, 270, 0.06); /*/*### -- Opacity configuration of the little white layer which glosses at the end of every hover animation  --###*/
+
+	-webkit-transition: all .6s;
+	   -moz-transition: all .6s;
+	    -ms-transition: all .6s;
+	     -o-transition: all .6s;
+	        transition: all .6s;
+}
+
+
+/* initially position &amp; animate the underlying layer based on animation direction class*/
+
+/*////// square btns //////*/
+
+/*////// left to right //////*/
+.geBttn.ltr>span:last-child{
+	height: 100%; width: 0;
+	left: 0; top: 0;
+}
+
+.geBttn.ltr:hover>span:last-child{
+	width: 100%;
+}
+
+/*////// right to left //////*/
+.geBttn.rtl>span:last-child{
+	height: 100%; width: 0;
+	left: 100%; top: 0;
+}
+
+.geBttn.rtl:hover>span:last-child{
+	width: 100%;
+	left: 0;
+}
+
+/*////// top to bottom //////*/
+.geBttn.ttb>span:last-child{
+	height: 0; width: 100%;
+	left: 0; top: 0;
+}
+
+.geBttn.ttb:hover>span:last-child{
+	height: 100%;
+}
+
+/*////// bottom to top //////*/
+.geBttn.btt>span:last-child{
+	height: 0; width: 100%;
+	left: 0; top: 100%;
+}
+
+.geBttn.btt:hover>span:last-child{
+	height: 100%;
+	top: 0;
+}
+
+
+
+
+/*////// circle btns //////*/
+
+/*////// inside -> grow outwards //////*/
+.geBttn.io>span:last-child{
+	width: 0; height: 0;
+	left: 50%; top: 50%;
+}
+
+.geBttn.io:hover>span:last-child{
+	width: 100%; height: 100%;
+	left: 0; top: 0;
+}
+
+
+/*////// outside -> grow and slide in //////*/
+.geBttn.oi{
+	overflow: hidden; /*will have to be hidden for this*/
+}
+.geBttn.oi>span:last-child{
+	width: 0; height: 0;
+	left: 0; top: 0;
+}
+
+.geBttn.oi:hover>span:last-child{
+	width: 100%; height: 100%;
+}
+
+
+
+
+/*    For all buttons, have the little gloss third layer animation item at the end do the same thing (as defined below)    */
+
+
+.geBttn>span:last-child>span{ 
+	height: 0; width: 0;
+	left: 50%; top: 50%;
+}
+.geBttn:hover>span:last-child>span{
+	top: 0; left: 0;
+	height: 100%; width: 100%;
+}
+	</pre>
+	<pre>
+// no js for this! :)
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		// no js for this! :)
+	</script>
+</body>
+</html>

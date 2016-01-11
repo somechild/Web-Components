@@ -1,0 +1,396 @@
+<!doctype html>
+<html>
+<head>
+	<title>B_3 View</title>
+
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 48px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #969696;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 11px;
+			text-align: center;
+			margin-top: 24px;
+			color: #787878;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+
+
+		/* general button styling */
+
+		.bkBttn{
+			display: block;
+			
+			position: relative;
+
+			text-align: center;
+			text-decoration: none;
+			margin-bottom: 12px; margin-top: 12px;
+			font-size: 9px;
+			background-color: transparent;
+			color: #bfb8a5; /*### -- text color of button -- ###*/
+			box-shadow: 0px 3px 18px -6px #424242; /*### -- shadow on button -- ###*/
+			-webkit-transition: box-shadow .18s, color .18s;
+			   -moz-transition: box-shadow .18s, color .18s;
+			    -ms-transition: box-shadow .18s, color .18s;
+			     -o-transition: box-shadow .18s, color .18s;
+			        transition: box-shadow .18s, color .18s;
+		}
+		.bkBttn.circld{
+			height: 66px; width: 66px; line-height: 66px;
+			border-radius: 100%;
+		}
+		.bkBttn.circld, .bkBttn.circld>span:last-child{
+			border-radius: 100%;
+		}
+
+		.bkBttn.rectd{
+			height: 48px; width: 84px; line-height: 48px;
+		}
+		.bkBttn.rectd, .bkBttn.rectd>span:last-child{
+			border-radius: 3px 3px 12px 3px;
+		}
+
+
+		.bkBttn>span:first-child{
+			position: relative;
+			z-index: 1;
+		}
+		.bkBttn>span:last-child{
+			position: absolute; display: block;
+			height: 100%; width: 100%;
+			top: 0; left: 0;
+			background-color: #413c2e; /*### -- modify background colors of this item and the item below to change button colors -- ###*/
+			overflow: hidden;
+			-webkit-transition: background-color .12s;
+			   -moz-transition: background-color .12s;
+			    -ms-transition: background-color .12s;
+			     -o-transition: background-color .12s;
+			        transition: background-color .12s;
+		}
+		.bkBttn>span:last-child>span:first-child{
+			display: block; position: absolute;
+			top: 0; left: 0;
+			background-color: #32291c; /*### -- modify background colors of this item and the item(^) above to change button colors -- ###*/
+			-webkit-transition: all .06s;
+			   -moz-transition: all .06s;
+			    -ms-transition: all .06s;
+			     -o-transition: all .06s;
+			        transition: all .06s;/*
+			-webkit-transition: all .12s;
+			   -moz-transition: all .12s;
+			    -ms-transition: all .12s;
+			     -o-transition: all .12s;
+			        transition: all .12s;*/
+		}
+
+		.bkBttn.rectd>span:last-child>span:first-child{
+			height: 84%; width: 98%;
+			border-radius: 0px 0px 18px 0px;
+		}
+		.bkBttn.circld>span:last-child>span:first-child{
+			height: 150%; width: 150%;
+			top: -12px; left: -72%;
+			border-radius: 90% 0;
+			-webkit-transform: rotate(12deg);
+			   -moz-transform: rotate(12deg);
+			    -ms-transform: rotate(12deg);
+			     -o-transform: rotate(12deg);
+			        transform: rotate(12deg);
+		}
+
+
+		.bkBttn>span:last-child>span:last-child{
+			display: block; position: absolute;
+			bottom: -100%; left: -18%;
+			width: 100%; height: 100%;
+			z-index: 1;
+			background-color: rgba(180, 180, 180, 0.18);
+			-webkit-transform: rotate(30deg);
+			   -moz-transform: rotate(30deg);
+			    -ms-transform: rotate(30deg);
+			     -o-transform: rotate(30deg);
+			        transform: rotate(30deg);
+
+			-webkit-transition: all .36s;
+			   -moz-transition: all .36s;
+			    -ms-transition: all .36s;
+			     -o-transition: all .36s;
+			        transition: all .36s;
+		}
+		
+
+
+		.bkBttn:hover{
+			color: #EBEBEb;  /*### -- color of text when button is hovered over -- ###*/
+			box-shadow: 0px 3px 24px -3px #111111; /*### -- shadow on button when hovered over -- ###*/
+		}
+		.bkBttn:hover>span:last-child>span:last-child{
+			bottom: 120%; height: 12px;
+			left: 24%;
+			background-color: rgba(180, 180, 180, 0.06);
+		}
+		.bkBttn:hover>span:last-child{
+			background-color: #605749;
+		}
+		.bkBttn:hover>span:last-child>span:first-child{
+			background-color: #484035;
+		}
+
+
+		.bkBttn:active{
+			color: #e1c67d;  /*### -- color of text when button is pressed -- ###*/
+			box-shadow: 0px 3px 9px -6px black; /*### -- shadow when button is pressed -- ###*/
+		}
+		.bkBttn:active>span:last-child{
+			/*background-color: #484035;*/
+		}
+		.bkBttn.circld:active>span:last-child>span:first-child{
+			width: 156%; /*border-radius: 100%;*/
+			height: 156%;
+			/*background-color: #605749;*/
+		}
+		.bkBttn.rectd:active>span:last-child>span:first-child{
+			width: 103%; height: 90%;
+			/*background-color: #605749;*/
+		}
+
+
+
+
+
+
+	</style>
+</head>
+<body>
+	<h1>3. &ndash; "BBkeis"</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<p>Circle</p>
+					<a href="#" class="bkBttn circld">
+						<span>Ok</span>
+						<span><span></span><span></span></span>
+					</a>
+
+				</td>
+				<td>
+					<p>Rectangle</p>
+					<a href="#" class="bkBttn rectd">
+						<span>Continue</span>
+						<span><span></span><span></span></span>
+					</a>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<pre>
+
+&lt;a href="#" class="rBttn {shapeClass}"&gt;
+	&lt;span&gt;{bttnTxt}&lt;/span&gt;
+	&lt;span&gt;&lt;/span&gt;
+&lt;/a&gt;
+
+&lt;!--
+	{shapeClasses} can be 'rectd' or 'circld'
+--&gt;
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+
+/* general button styling */
+.bkBttn{
+	display: block;
+	
+	position: relative;
+
+	text-align: center;
+	text-decoration: none;
+	margin-bottom: 12px; margin-top: 12px;
+	font-size: 9px;
+	background-color: transparent;
+	color: #bfb8a5; /*### -- text color of button -- ###*/
+	box-shadow: 0px 3px 18px -6px #424242; /*### -- shadow on button -- ###*/
+	-webkit-transition: box-shadow .18s, color .18s;
+	   -moz-transition: box-shadow .18s, color .18s;
+	    -ms-transition: box-shadow .18s, color .18s;
+	     -o-transition: box-shadow .18s, color .18s;
+	        transition: box-shadow .18s, color .18s;
+}
+.bkBttn.circld{
+	height: 48px; width: 48px; line-height: 48px;
+	border-radius: 100%;
+}
+.bkBttn.circld, .bkBttn.circld>span:last-child{
+	border-radius: 100%;
+}
+
+.bkBttn.rectd{
+	height: 36px; width: 72px; line-height: 36px;
+}
+.bkBttn.rectd, .bkBttn.rectd>span:last-child{
+	border-radius: 3px 3px 12px 3px;
+}
+
+
+.bkBttn>span:first-child{
+	position: relative;
+	z-index: 1;
+}
+.bkBttn>span:last-child{
+	position: absolute; display: block;
+	height: 100%; width: 100%;
+	top: 0; left: 0;
+	background-color: #413c2e; /*### -- modify background colors of this item and the item below to change button colors -- ###*/
+	overflow: hidden;
+	-webkit-transition: background-color .12s;
+	   -moz-transition: background-color .12s;
+	    -ms-transition: background-color .12s;
+	     -o-transition: background-color .12s;
+	        transition: background-color .12s;
+}
+.bkBttn>span:last-child>span:first-child{
+	display: block; position: absolute;
+	top: 0; left: 0;
+	background-color: #32291c; /*### -- modify background colors of this item and the item(^) above to change button colors -- ###*/
+	-webkit-transition: all .06s;
+	   -moz-transition: all .06s;
+	    -ms-transition: all .06s;
+	     -o-transition: all .06s;
+	        transition: all .06s;
+}
+
+.bkBttn.rectd>span:last-child>span:first-child{
+	height: 84%; width: 98%;
+	border-radius: 0px 0px 18px 0px;
+}
+.bkBttn.circld>span:last-child>span:first-child{
+	height: 150%; width: 150%;
+	top: -12px; left: -72%;
+	border-radius: 90% 0;
+	-webkit-transform: rotate(12deg);
+	   -moz-transform: rotate(12deg);
+	    -ms-transform: rotate(12deg);
+	     -o-transform: rotate(12deg);
+	        transform: rotate(12deg);
+}
+
+
+.bkBttn>span:last-child>span:last-child{
+	display: block; position: absolute;
+	bottom: -100%; left: -18%;
+	width: 100%; height: 100%;
+	z-index: 1;
+	background-color: rgba(180, 180, 180, 0.18);
+	-webkit-transform: rotate(30deg);
+	   -moz-transform: rotate(30deg);
+	    -ms-transform: rotate(30deg);
+	     -o-transform: rotate(30deg);
+	        transform: rotate(30deg);
+
+	-webkit-transition: all .36s;
+	   -moz-transition: all .36s;
+	    -ms-transition: all .36s;
+	     -o-transition: all .36s;
+	        transition: all .36s;
+}
+
+
+
+.bkBttn:hover{
+	color: #EBEBEb;  /*### -- color of text when button is hovered over -- ###*/
+	box-shadow: 0px 3px 24px -3px #111111; /*### -- shadow on button when hovered over -- ###*/
+}
+.bkBttn:hover>span:last-child>span:last-child{
+	bottom: 120%; height: 12px;
+	left: 24%;
+	background-color: rgba(180, 180, 180, 0.06);
+}
+.bkBttn:hover>span:last-child{
+	background-color: #605749;
+}
+.bkBttn:hover>span:last-child>span:first-child{
+	background-color: #484035;
+}
+
+
+.bkBttn:active{
+	color: #e1c67d;  /*### -- color of text when button is pressed -- ###*/
+	box-shadow: 0px 3px 9px -6px black; /*### -- shadow when button is pressed -- ###*/
+}
+.bkBttn.circld:active>span:last-child>span:first-child{
+	width: 156%; height: 156%;
+}
+.bkBttn.rectd:active>span:last-child>span:first-child{
+	width: 103%; height: 90%;
+}
+
+
+	</pre>
+	<pre>
+// no js for this! :)
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		// no js for this! :)
+	</script>
+</body>
+</html>

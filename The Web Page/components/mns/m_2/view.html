@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+<head>
+	<title>M_2</title>
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		body{
+			background-color: #0F0F0F;
+		}
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif!important;
+		}
+		h1{
+			margin-top: 72px;
+			font-size: 18px;
+			color: #969696;
+			text-align: center;
+			font-style: italic;
+			width: calc(100% - 100px);
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 11px;
+			text-align: center;
+			margin-top: 24px;
+			color: #787878;
+		}
+		b{
+			font-weight: bold;
+		}
+
+		#bodyBg{
+			position: fixed;
+			z-index: -1;
+			height: 100%; width: 100%; top: 0; left: 0;
+
+			background-image: url('http://res.freestockphotos.biz/pictures/9/9994-farm-fields-with-mountains-in-the-background-landscape-pv.jpg');
+			/* Image from http://res.freestockphotos.biz */
+			background-size: cover;
+			-webkit-background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			opacity: 0.24;
+		}
+		body>a{
+			display: block;
+			text-align: center;
+			width: calc(100% - 100px);
+			color: #D9C65D;
+			margin-top: 36px;
+			font-size: 12px;
+		}
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+		#header{
+			position: fixed;
+			top: 0;
+			z-index: 2;
+			right: -100px;  /*### -- pushes nav to the right for it to slide into view on load (see js)  -- ###*/
+			height: 100%;
+			width: 100px;  /*### -- width of nav  -- ###*/
+
+			/* Transition for sliding navs into view */
+			-webkit-transition: right .6s;
+			   -moz-transition: right .6s;
+			    -ms-transition: right .6s;
+			     -o-transition: right .6s;
+			        transition: right .6s;
+		}
+		#header>div>span{
+			display: block;
+			position: fixed;
+			height: 100%; width: 100px; top: 0; right: -100px;  /*### -- match nav styles for this  -- ###*/
+			background-color: #D3D8DB; /*### -- background color  -- ###*/
+			opacity: 0.06; /*### -- opacity of background  -- ###*/
+			z-index: -1;
+			-webkit-transition: opacity .2s, right .9s;  /* make it slide in slower than the text for a cool effect */
+			   -moz-transition: opacity .2s, right .9s;
+			    -ms-transition: opacity .2s, right .9s;
+			     -o-transition: opacity .2s, right .9s;
+			        transition: opacity .2s, right .9s;
+		}
+		#header>div:hover>span{
+			opacity: 0.09; /*### -- opacity of background on nav focus  -- ###*/
+		}
+
+
+		#header>div{
+			width: 100px;  /*### -- match width of navs  -- ###*/
+			height: 100%;
+			margin: none;
+			overflow: auto;
+			position: relative;
+		}
+		#header>div>a{
+			display: block;
+			width: 100px;  /*### -- match nav width  -- ###*/
+			height: 60px;  /*### -- height of links  -- ###*/
+			float: left;
+			line-height: 60px;  /*### -- match height  -- ###*/
+			text-align: center;
+			color: #BABABA;  /*### -- color of text  -- ###*/
+			text-decoration: none;
+			font-size: 13px;
+			border-bottom: 10px solid transparent;
+			position: relative;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+
+			-webkit-transition: all .3s;
+			   -moz-transition: all .3s;
+			    -ms-transition: all .3s;
+			     -o-transition: all .3s;
+			        transition: all .3s;
+		}
+		#header>div>a:hover{
+			/*### -- animate links on hover  -- ###*/
+			color: #EBD471!important;
+			height: 72px;
+			border-bottom: 2px solid #F7FAFA;
+		}
+
+		/*** currently selected item indicator ***/
+		.currentItem{
+			color: #EBD471!important;
+			border-bottom: 2px solid #EBD471!important;
+			cursor: default!important;
+			height: 60px!important;
+		}
+
+		
+		/*** The logo container at the top ***/
+
+		#header>div>div{
+			background-image: url('http://i.imgur.com/dZ6bNQj.png'); /*### -- link to your logo  -- ###*/
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: auto 70%;
+			width: 100px; height: 60px;
+			float: left;
+			position: relative;
+		}
+		
+
+		
+
+		
+	</style>
+</head>
+<body>
+	<h1>2. &ndash; 'glass panel'</h1>
+	<div id="bodyBg"></div>
+	
+	<div id="header">
+		<div>
+			<div></div>
+			<a href="#" class="currentItem" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Home<span></span></a>
+			<a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">About<span></span></a>
+			<a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Portfolio<span></span></a>
+			<a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Blog</a>
+			<a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Members</a>
+			<a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Events</a>
+			<a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">The Team</a>
+			<a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Contact</a>
+			<span></span>
+		</div>
+	</div>
+	
+	<a href="">Click to re-run onload animation</a>
+
+	<pre>
+&lt;!-- 
+	make sure jQuery is loaded. modify as you wish :)
+--&gt;
+
+&lt;div id="header">
+	&lt;div>
+		&lt;div>&lt;/div>
+		&lt;a href="#" class="currentItem" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Home&lt;span>&lt;/span>&lt;/a>
+		&lt;a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">About&lt;span>&lt;/span>&lt;/a>
+		&lt;a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Portfolio&lt;span>&lt;/span>&lt;/a>
+		&lt;a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Blog&lt;/a>
+		&lt;a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Members&lt;/a>
+		&lt;a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Events&lt;/a>
+		&lt;a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">The Team&lt;/a>
+		&lt;a href="#" onclick="$('.currentItem').removeClass('currentItem');$(this).addClass('currentItem');">Contact&lt;/a>
+		&lt;span>&lt;/span>
+	&lt;/div>
+&lt;/div>
+
+
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+#header{
+	position: fixed;
+	top: 0;
+	z-index: 2;
+	right: -100px;  /*### -- pushes nav to the right for it to slide into view on load (see js)  -- ###*/
+	height: 100%;
+	width: 100px;  /*### -- width of nav  -- ###*/
+
+	/* Transition for sliding navs into view */
+	-webkit-transition: right .6s;
+	   -moz-transition: right .6s;
+	    -ms-transition: right .6s;
+	     -o-transition: right .6s;
+	        transition: right .6s;
+}
+#header>div>span{
+	display: block;
+	position: fixed;
+	height: 100%; width: 100px; top: 0; right: -100px;  /*### -- match nav styles for this  -- ###*/
+	background-color: #D3D8DB; /*### -- background color  -- ###*/
+	opacity: 0.06; /*### -- opacity of background  -- ###*/
+	z-index: -1;
+	-webkit-transition: opacity .2s, right .9s;  /* make it slide in slower than the text for a cool effect */
+	   -moz-transition: opacity .2s, right .9s;
+	    -ms-transition: opacity .2s, right .9s;
+	     -o-transition: opacity .2s, right .9s;
+	        transition: opacity .2s, right .9s;
+}
+#header>div:hover>span{
+	opacity: 0.09; /*### -- opacity of background on nav focus  -- ###*/
+}
+
+
+#header>div{
+	width: 100px;  /*### -- match width of navs  -- ###*/
+	height: 100%;
+	margin: none;
+	overflow: auto;
+	position: relative;
+}
+#header>div>a{
+	display: block;
+	width: 100px;  /*### -- match nav width  -- ###*/
+	height: 60px;  /*### -- height of links  -- ###*/
+	float: left;
+	line-height: 60px;  /*### -- match height  -- ###*/
+	text-align: center;
+	color: #BABABA;  /*### -- color of text  -- ###*/
+	text-decoration: none;
+	font-size: 13px;
+	border-bottom: 10px solid transparent;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-transition: all .3s;
+	   -moz-transition: all .3s;
+	    -ms-transition: all .3s;
+	     -o-transition: all .3s;
+	        transition: all .3s;
+}
+#header>div>a:hover{
+	/*### -- animate links on hover  -- ###*/
+	color: #EBD471!important;
+	height: 72px;
+	border-bottom: 2px solid #F7FAFA;
+}
+
+/*** currently selected item indicator ***/
+.currentItem{
+	color: #EBD471!important;
+	border-bottom: 2px solid #EBD471!important;
+	cursor: default!important;
+	height: 60px!important;
+}
+
+
+/*** The logo container at the top ***/
+
+#header>div>div{
+	background-image: url('http://i.imgur.com/dZ6bNQj.png'); /*### -- link to your logo  -- ###*/
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto 70%;
+	width: 100px; height: 60px;
+	float: left;
+	position: relative;
+}
+
+
+
+
+	</pre>
+	<pre>
+// make sure u have jquery loaded! :)
+$(document).ready(function() {
+	setTimeout(function() {$('#header, #header>div>span').css('right', '0');}, 900);
+		//--> basically sliding navs into view from the right a bit after the document is ready
+});
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			setTimeout(function() {$('#header, #header>div>span').css('right', '0');}, 900);
+				//--> basically sliding navs into view from the right a bit after the document is ready
+		});
+	</script>
+</body>
+</html>

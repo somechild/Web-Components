@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+	<title>T_1 View</title>
+
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		body{
+			background-color: #e7e3de;
+		}
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 48px; margin-bottom: 18px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #686868;
+			text-align: center;
+			font-style: italic;
+		}
+		b{
+			font-weight: bold;
+		}
+
+		.threeCols1s{
+			width: 31%;
+		}
+		.threeCols2s{
+			width: 64%;
+		}
+		.cols{
+			float: left;
+			margin: 1%;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+		.lpBlock{
+			height: auto; /*### -- width: youset; -- ###*/
+			padding: 24px; margin-bottom: 12px;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			
+			box-shadow: 0px 1px 6px -3px #424242; 
+			background-color: #FAFAFA; /*### -- A 'plain' background-color -- ###*/
+			border-radius: 2px;
+		}
+		.lpBlock>p{
+			margin-top: 12px; margin-bottom: 18px;
+			line-height: 18px;
+			font-size: 13px;
+			color: #26200d; /*### -- A dark but not black color for the text | currently set to a dark brown as dark browns tend to do well for reading -- ###*/
+
+			text-shadow: 0px 0px 3px #FCFCFC;
+		}
+		.lpBlock>img{
+			margin: 12px;
+		}
+		.lpBlock>img[align=right]{
+			margin-left: 12px; margin-top: 9px; margin-bottom: 9px; margin-right: 0px;
+		}
+		.lpBlock>img[align=left]{
+			margin-left: 0px; margin-top: 9px; margin-bottom: 9px; margin-right: 12px;
+		}
+		.lpBlock a{
+			color: #b76b54; /*### -- Choose a color that stands out for links -- ###*/
+		}
+		.lpBlock a:active{
+			color: #d29d8d; /*### -- Color for when the link is pressed -- ###*/
+		}
+		.lpBlock>p>a{
+			text-decoration: none;
+			font-size: 14px; /*### -- Make text links a bit bigger -- ###*/
+		}
+
+		/*action links seperate from paragraphs*/
+		.lpBlock>a{
+			font-size: 14px;
+			display: block;
+			text-align: center;
+		}
+		
+	</style>
+</head>
+<body>
+	<h1>1. &ndash; "Cake"</h1>
+	<div class="lpBlock cols threeCols2s">
+		<p>Modify the width of these blocks as you wish. This just gives you modifiable styling code for the block and its contents. Currently using a 3-column grid... Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. <a href="#">Links are awsome!</a> ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		<img src="../../../imgs/globeIco.png" align="right">
+		<p>Spacing around images. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi. <a href="#">Lorem Ipsum</a> dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui. </p>
+	</div>
+	<div class="lpBlock cols threeCols1s">
+		<p>Noice for lotsa things. Lorem ipsum dolor sit amet, consectetur <a href="#">aiufhaiuhd</a>  adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+		<a href="#">Action Link</a>
+	</div>
+
+	<pre>
+
+
+&lt;div class="lpBlock"&gt;
+	
+&lt;!-- 
+	use any of the following tags within this block and they'll be styled!
+--&gt;
+
+	&lt;p&gt;
+	
+		{paragraphText}
+		&lt;a href="{url}"&gt;{linkInsideParagraph}&lt;/a&gt;
+		&lt;br&gt;
+		{moreParagraphText}
+	
+	&lt;/p&gt;
+	
+	&lt;img src="{imgLink}" align="{left/right}"&gt;
+
+	&lt;a href="{url}"&gt;{linkOutsideText}&lt;/a&gt;
+
+&lt;/div&gt;
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+.lpBlock{
+	height: auto; /*### -- width: youset; -- ###*/
+	padding: 24px; margin-bottom: 12px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	box-shadow: 0px 1px 6px -3px #424242; 
+	background-color: #FAFAFA; /*### -- A 'plain' background-color -- ###*/
+	border-radius: 2px;
+}
+.lpBlock>p{
+	margin-top: 12px; margin-bottom: 18px;
+	line-height: 18px;
+	font-size: 13px;
+	color: #26200d; /*### -- A dark but not black color for the text | currently set to a dark brown as dark browns tend to do well for reading -- ###*/
+
+	text-shadow: 0px 0px 3px #FCFCFC;
+}
+.lpBlock>img{
+	margin: 12px;
+}
+.lpBlock>img[align=right]{
+	margin-left: 12px; margin-top: 9px; margin-bottom: 9px; margin-right: 0px;
+}
+.lpBlock>img[align=left]{
+	margin-left: 0px; margin-top: 9px; margin-bottom: 9px; margin-right: 12px;
+}
+.lpBlock a{
+	color: #b76b54; /*### -- Choose a color that stands out for links -- ###*/
+}
+.lpBlock a:active{
+	color: #d29d8d; /*### -- Color for when the link is pressed -- ###*/
+}
+.lpBlock>p>a{
+	text-decoration: none;
+	font-size: 14px; /*### -- Make text links a bit bigger -- ###*/
+}
+
+/*action links seperate from paragraphs*/
+.lpBlock>a{
+	font-size: 14px;
+	display: block;
+	text-align: center;
+}
+	</pre>
+	<pre>
+// no js for this! :)
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		// no js for this! :)
+	</script>
+</body>
+</html>

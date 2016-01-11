@@ -1,0 +1,37 @@
+
+body{
+	background-color: #F9F9F8;
+}
+
+h1{
+	font-size: 48px;
+	text-align: center;
+	margin-top: 48px;
+	font-weight: bold;
+	color: #CF4B13;
+}
+h1>span{
+	display: inline-block;
+	position: relative;
+	opacity: 0;
+	-webkit-transition: all .12s;
+	   -moz-transition: all .12s;
+	    -ms-transition: all .12s;
+	     -o-transition: all .12s;
+	        transition: all .12s;
+}
+
+p{
+	display: block;
+	text-align: center;
+	margin-top: 48px;
+	margin-bottom: 48px;
+	font-size: 24px;
+	color: #1361CF;
+}
+p[data-isAnimating="true"]{
+	color: black;
+}
+p[data-isAnimating="true"]>span{
+	display: none;
+}

@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+	<title>Web Components</title>
+	<link rel="stylesheet" type="text/css" href="gbrs.css">
+	<link rel="stylesheet" type="text/css" href="gbsys.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="overlay.css">
+	<link rel="stylesheet" type="text/css" href="collectionContainer.css">
+</head>
+<body>
+
+
+
+
+	<div id="header">
+		<div>
+			<a href="index.html"><img src="imgs/homeico.png"></a>
+			<ul>
+				<p>Scroll to:</p>
+				<li id="currentPageIndicator">
+					<a href="#/" onclick="dontScrl = false;$(this).parent().addClass('forceIndicator')">Top</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#bttns/" onclick="dontScrl = false;$(this).parent().addClass('forceIndicator')">Buttons</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#mns/" onclick="dontScrl = false;$(this).parent().addClass('forceIndicator')">Menus</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#frms/" onclick="dontScrl = false;$(this).parent().addClass('forceIndicator')">Form Fields</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#txtblckcntnrs/" onclick="dontScrl = false;$(this).parent().addClass('forceIndicator')">Text blocks</a>
+					<span></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+
+
+	<!--
+	###Code stage template
+	<div id="codeStage">
+		<h2>Copy the code!</h2>
+		<p>The HTML</p>
+		<pre>//shits loading</pre>
+
+		<p>The CSS</p>
+		<pre>//shits loading</pre>
+
+		<p>The JavaScript</p>
+		<pre>//shits loading</pre>
+	</div>
+	-->
+	<div id="body" class="mainNavs">
+
+
+
+
+		<h2><u>Kewl</u> but simple Web Components 4 U! <span>&mdash; by <a href="http://jaypatel.co/" target="_blank" rel="nofollow">Jay Patel</a></span></h2>
+
+		<!-- <hr> -->
+		<p>A collection of <u>kewl</u> HTML/CSS/JS components u <i>kan</i> use four u r websites.<br><br><span>You're going to need <a href="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js" rel="nofollow" target="_blank">jQuery</a> loaded on your site before you use most of the javascript code here</span></p>
+		<!-- <div class="hr"></div> -->
+
+
+
+
+
+		<h3><span>The collection</span><a onclick="window.open('https://www.google.ca/search?q=dj+khaled%27s+snapchat');">Key to more success?</a><a href="#/nah">Secret to easy money?</a></h3>
+
+		<div id="collectionContainer">
+
+			
+			<div id="bttns">
+				<h2>Buttons<span></span></h2>
+				<div class="itemGallery">
+
+
+					<!--
+					###This is the general template used inside itemGalleries
+					 <div>
+						<iframe src="btns/b_1/view.html" id="b_1frame" fullscreen seamless></iframe>
+						<div>
+							<a onclick="fullScreen('b_1')">Expand Demo</a>
+							<a onclick="goTo(this)">Get code</a>
+						</div>
+					</div> 
+					-->
+
+
+				</div>
+			</div>
+
+
+			<div id="mns">
+				<h2>Menus <span></span></h2>
+				<div class="itemGallery">
+
+
+					<!-- <div>
+						<iframe src="mns/m_1.html" id="m_1frame" fullscreen seamless></iframe>
+						<div>
+							<a onclick="fullScreen('m_1')">Expand Demo</a>
+							<a onclick="goTo(this)">Get code</a>
+						</div>
+					</div> -->
+
+
+				</div>
+			</div>
+			
+
+			<div id="frms">
+				<h2>Forms input fields<span></span></h2>
+				<div class="itemGallery">
+
+
+					<!-- <div>
+						<iframe src="frms/f_1.html" id="f_1frame" fullscreen seamless></iframe>
+						<div>
+							<a onclick="fullScreen('f_1')">Expand Demo</a>
+							<a onclick="goTo(this)">Get code</a>
+						</div>
+					</div> -->
+
+
+				</div>
+			</div>
+			
+
+			<div id="txtblckcntnrs">
+				<h2>Text block containers <span></span></h2>
+				<div class="itemGallery">
+
+
+					<!-- <div>
+						<iframe src="txtblckcntnrs/t_1.html" id="t_1frame" fullscreen seamless></iframe>
+						<div>
+							<a onclick="fullScreen('t_1')">Expand Demo</a>
+							<a onclick="goTo(this)">Get code</a>
+						</div>
+					</div> -->
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+	
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jqueryMouseWheel.min.js"></script>
+	<script type="text/javascript" src="routing.js"></script>
+	<script type="text/javascript" src="collectionContainer.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

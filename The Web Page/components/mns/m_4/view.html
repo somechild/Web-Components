@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+<head>
+	<title>M_4</title>
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 72px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #969696;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 11px;
+			text-align: center;
+			margin-top: 24px;
+			color: #787878;
+		}
+		b{
+			font-weight: bold;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+		.centered{  /*### -- positioning class -- ###*/
+			margin: 0 auto;
+		}
+
+
+		/* Panel outermost container */
+		.panel{
+			display: block; position: relative;
+			width: 360px; height: auto;
+			margin-top: 48px; margin-bottom: 48px;
+			
+			background-color: #FAFAFA; /*### -- background color of links -- ###*/
+			border: 1px solid #EBEBEB; /*### -- slight border on panel -- ###*/
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		
+
+		/* Panel Header Container */
+		.panel>div{
+			padding-top: 24px;
+			padding-bottom: 18px;
+			background-color: #FCFCFC; /*### -- background color of header -- ###*/
+			position: relative;
+			
+			box-shadow: 0px 3px 6px -3px #787878;  /*### -- box shadow of header -- ###*/
+		}
+		.panel>div>p{
+			padding-left: 24px;
+			font-size: 18px; /*### -- header font size -- ###*/
+			font-style: italic;
+			color: #4F3F4B; /*### -- default color of header title -- ###*/
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+
+			-webkit-transition: color .48s;
+			   -moz-transition: color .48s;
+			    -ms-transition: color .48s;
+			     -o-transition: color .48s;
+			        transition: color .48s;
+		}
+		.panel:hover>div>p{
+			color: #C92A5A; /*### --  color header text on panel focus -- ###*/
+		}
+
+
+
+		/* For slight animation on left border of panel */
+		.panel>hr{
+			position: absolute; display: block;
+			width: 3px; height: 0;
+			border: none; outline: none;
+			top: 52px; left: 0;
+			background-color: #C92A5A;
+
+			-webkit-transition: height .24s;
+			   -moz-transition: height .24s;
+			    -ms-transition: height .24s;
+			     -o-transition: height .24s;
+			        transition: height .24s;
+		}
+		.panel:hover>hr{
+			height: calc(100% - 60px);
+		}
+
+
+
+		/* List of links */
+		.panel>ul{
+			display: block;
+			border-left: 2px solid #E32772; /*### -- left border of panel -- ###*/
+
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		.panel>ul>li{
+			display: block;
+			height: 60px; line-height: 60px; /*### -- height of list items -- ###*/
+			padding-left: 18px;
+			position: relative;
+		}
+		.panel>ul>li>a{
+			display: block;
+			height: 60px; line-height: 60px; /*### -- height of list items -- ###*/
+			text-decoration: none;
+			color: #4F3F4B; /*### -- default color of links -- ###*/
+			font-size: 12px; /*### -- default color fo font size -- ###*/
+			position: relative;
+			z-index: 1;
+
+			-webkit-transition: color .48s;
+			   -moz-transition: color .48s;
+			    -ms-transition: color .48s;
+			     -o-transition: color .48s;
+			        transition: color .48s;
+		}
+		.panel>ul>li>span{
+			display: block;
+			position: absolute;
+			height: 100%; width: 0;
+			top: 0; left: 0;
+			background-color: #C92A5A; /*### -- background color of links on hover -- ###*/
+			z-index: 0;
+
+			-webkit-transition: width .48s;
+			   -moz-transition: width .48s;
+			    -ms-transition: width .48s;
+			     -o-transition: width .48s;
+			        transition: width .48s;
+		}
+
+
+		.panel>ul>li:hover>a{
+			color: #FAFAFA; /*### --  color of links on hover -- ###*/
+		}
+		.panel>ul>li:hover>span{
+			width: 100%;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<h1>4. &ndash; 'Panel'</h1>
+	
+	<div class="panel centered">
+		<div>
+			<p>Article Categories</p>
+		</div>
+		<hr>
+		<ul>
+			<li>
+				<a href="#">World</a>
+				<span></span>
+			</li>
+			<li>
+				<a href="#">Business</a>
+				<span></span>
+			</li>
+			<li>
+				<a href="#">Politics</a>
+				<span></span>
+			</li>
+			<li>
+				<a href="#">Technology</a>
+				<span></span>
+			</li>
+			<li>
+				<a href="#">Sports</a>
+				<span></span>
+			</li>
+			<li>
+				<a href="#">Health</a>
+				<span></span>
+			</li>
+			<li>
+				<a href="#">Arts</a>
+				<span></span>
+			</li>
+		</ul>
+	</div>
+	
+	<pre>
+&lt;!-- 
+	make sure jQuery is loaded. modify as you wish :)
+--&gt;
+
+&lt;div class="panel centered">
+	&lt;div>
+		&lt;p>Article Categories&lt;/p>
+	&lt;/div>
+	&lt;hr>
+	&lt;ul>
+		&lt;li>
+			&lt;a href="#">World&lt;/a>
+			&lt;span>&lt;/span>
+		&lt;/li>
+		&lt;li>
+			&lt;a href="#">Business&lt;/a>
+			&lt;span>&lt;/span>
+		&lt;/li>
+		&lt;li>
+			&lt;a href="#">Politics&lt;/a>
+			&lt;span>&lt;/span>
+		&lt;/li>
+		&lt;li>
+			&lt;a href="#">Technology&lt;/a>
+			&lt;span>&lt;/span>
+		&lt;/li>
+		&lt;li>
+			&lt;a href="#">Sports&lt;/a>
+			&lt;span>&lt;/span>
+		&lt;/li>
+		&lt;li>
+			&lt;a href="#">Health&lt;/a>
+			&lt;span>&lt;/span>
+		&lt;/li>
+		&lt;li>
+			&lt;a href="#">Arts&lt;/a>
+			&lt;span>&lt;/span>
+		&lt;/li>
+	&lt;/ul>
+&lt;/div>
+
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+.centered{  /*### -- positioning class -- ###*/
+	margin: 0 auto;
+}
+
+
+/* Panel outermost container */
+.panel{
+	display: block; position: relative;
+	width: 360px; height: auto;
+	margin-top: 48px; margin-bottom: 48px;
+	
+	background-color: #FAFAFA; /*### -- background color of links -- ###*/
+	border: 1px solid #EBEBEB; /*### -- slight border on panel -- ###*/
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+/* Panel Header Container */
+.panel>div{
+	padding-top: 24px;
+	padding-bottom: 18px;
+	background-color: #FCFCFC; /*### -- background color of header -- ###*/
+	position: relative;
+	
+	box-shadow: 0px 3px 6px -3px #787878;  /*### -- box shadow of header -- ###*/
+}
+.panel>div>p{
+	padding-left: 24px;
+	font-size: 18px; /*### -- header font size -- ###*/
+	font-style: italic;
+	color: #4F3F4B; /*### -- default color of header title -- ###*/
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-transition: color .48s;
+	   -moz-transition: color .48s;
+	    -ms-transition: color .48s;
+	     -o-transition: color .48s;
+	        transition: color .48s;
+}
+.panel:hover>div>p{
+	color: #C92A5A; /*### --  color header text on panel focus -- ###*/
+}
+
+
+
+/* For slight animation on left border of panel */
+.panel>hr{
+	position: absolute; display: block;
+	width: 3px; height: 0;
+	border: none; outline: none;
+	top: 52px; left: 0;
+	background-color: #C92A5A;
+
+	-webkit-transition: height .24s;
+	   -moz-transition: height .24s;
+	    -ms-transition: height .24s;
+	     -o-transition: height .24s;
+	        transition: height .24s;
+}
+.panel:hover>hr{
+	height: calc(100% - 60px);
+}
+
+
+
+/* List of links */
+.panel>ul{
+	display: block;
+	border-left: 2px solid #E32772; /*### -- left border of panel -- ###*/
+
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.panel>ul>li{
+	display: block;
+	height: 60px; line-height: 60px; /*### -- height of list items -- ###*/
+	padding-left: 18px;
+	position: relative;
+}
+.panel>ul>li>a{
+	display: block;
+	height: 60px; line-height: 60px; /*### -- height of list items -- ###*/
+	text-decoration: none;
+	color: #4F3F4B; /*### -- default color of links -- ###*/
+	font-size: 12px; /*### -- default color fo font size -- ###*/
+	position: relative;
+	z-index: 1;
+
+	-webkit-transition: color .48s;
+	   -moz-transition: color .48s;
+	    -ms-transition: color .48s;
+	     -o-transition: color .48s;
+	        transition: color .48s;
+}
+.panel>ul>li>span{
+	display: block;
+	position: absolute;
+	height: 100%; width: 0;
+	top: 0; left: 0;
+	background-color: #C92A5A; /*### -- background color of links on hover -- ###*/
+	z-index: 0;
+
+	-webkit-transition: width .48s;
+	   -moz-transition: width .48s;
+	    -ms-transition: width .48s;
+	     -o-transition: width .48s;
+	        transition: width .48s;
+}
+
+
+.panel>ul>li:hover>a{
+	color: #FAFAFA; /*### --  color of links on hover -- ###*/
+}
+.panel>ul>li:hover>span{
+	width: 100%;
+}
+
+
+
+	</pre>
+	<pre>
+// all js has been embedded in the html entities. just make sure u have jquery loaded! :)
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		// no js for this! :)
+	</script>
+</body>
+</html>

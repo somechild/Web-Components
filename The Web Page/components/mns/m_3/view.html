@@ -1,0 +1,1278 @@
+<!doctype html>
+<html>
+<head>
+	<title>M_3</title>
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		h1{
+			margin-top: 96px;
+			font-size: 18px;
+			color: #969696;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+		}
+		td p{
+			font-size: 11px;
+			text-align: center;
+			margin-top: 24px;
+			color: #787878;
+		}
+		b{
+			font-weight: bold;
+		}
+		body>a{
+			display: block;
+			text-align: center;
+			width: 100%;
+			color: #268032;
+			margin-top: 36px;
+			font-size: 12px;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+
+		
+
+		/*-----  upper navigation bar  -----*/
+		#header *{
+			font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,AppleGothic,sans-serif!important;
+		}
+		#header{
+			position: fixed;top: 0; left: 0; /*pinned to the top*/
+			width: 100%; height: 60px; /*### -- header height -- ###*/
+			box-shadow: 0px 1px 6px -3px #424242; /*### -- header box shadow -- ###*/
+			background-color: #f9fbfb; /*### -- header background color -- ###*/
+			z-index: 5; /*### -- header z-index -- ###*/
+		}
+
+		/* position the bar at the top (no longer fixed) if window width is very small */
+		@media (max-width: 600px) { /* must match 'min-width' in #header>div styling below, adjust this accordingly */
+			#header{
+				position: absolute;
+			}
+		}
+		#header>div{
+			position: relative;
+			vertical-align: center;
+			margin: 0 auto;
+			height: 60px;  width: 100%;  /*### -- match header height and width -- ###*/
+			max-width: 1080px; min-width: 600px;  /*### -- adjust min-width based on how many items you decide to put in the navs -- ###*/
+		}
+
+
+
+
+		/* Logo container */
+		#header>div>a{
+			display: block;
+			width: 120px; height: 60px; line-height: 60px;
+			float: left; position: relative;
+		}
+			/* Centering the image */
+			#header>div>a>div:first-child{
+				padding-top: 100%;
+			}
+			#header>div>a>div:last-child{
+				position: absolute;
+				top: 0; bottom: 0; left: 0; right: 0;
+				text-align: center;
+				font: 0/0 a;
+			}
+			#header>div>a>div:last-child:before{
+				content: ' ';
+				display: inline-block;
+				vertical-align: middle;
+				height: 100%;
+			}
+			#header>div>a>div:last-child>img{
+				display: inline-block;
+				vertical-align: middle;
+				max-height: 36px; max-width: 114px;
+			}
+			#header>div>a:active>div:last-child>img{
+				outline: 2px dotted #EB5E2F;
+			}
+
+
+	
+		/* The links */
+		#header>div>ul{
+			display: block;
+			height: 60px;
+			float: right;
+		}
+		#header>div>ul>li{
+			display: block;
+			height: 60px; width: 90px;
+			float: left;
+			position: relative;
+			border-bottom-width: 3px;
+			border-bottom-style: solid;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			-webkit-transition: background-color .36s, border .12s;
+			   -moz-transition: background-color .36s, border .12s;
+			    -ms-transition: background-color .36s, border .12s;
+			     -o-transition: background-color .36s, border .12s;
+			        transition: background-color .36s, border .12s;
+		}
+		#header>div>ul>li#currentPageIndicator{
+			border-bottom-width: 4px!important;
+		}
+		#header>div>ul>li>a{
+			display: block;
+			height: 60px; line-height: 60px;
+			text-decoration: none;
+			font-size: 12px;
+			text-align: center;
+			text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
+			border-left: 1px solid rgba(270, 270, 270, 0.24);
+			position: relative;
+			z-index: 1;
+
+			-webkit-transition: margin .12s, color .36s;
+			   -moz-transition: margin .12s, color .36s;
+			    -ms-transition: margin .12s, color .36s;
+			     -o-transition: margin .12s, color .36s;
+			        transition: margin .12s, color .36s;
+		}
+		#header>div>ul>li#currentPageIndicator>a{
+			text-shadow: none;
+			text-decoration: underline;
+		}
+		
+		/* slight animation on hover item */
+		#header>div>ul>li>span{
+			display: block; position: absolute;
+			height: 0; width: 0;
+			top: 50%; left: 50%;
+			background-color: #f9fbfb; opacity: 0.036;
+			z-index: 0;
+
+			-webkit-transition: all .48s;
+			   -moz-transition: all .48s;
+			    -ms-transition: all .48s;
+			     -o-transition: all .48s;
+			        transition: all .48s;
+		}
+		#header>div>ul>li#currentPageIndicator>span{
+			top: 0; left: 0;
+			height: calc(100% + 4px); width: 100%;
+			background-color: #f9fbfb;
+			opacity: 0.96;
+			border-bottom: 4px solid #EBEBEB;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+
+
+
+		/* Link animations */
+
+		#header>div>ul>li:hover{
+			border-bottom-width: 3px;
+		}
+		#header>div>ul>li:hover>span{
+			top: 0; left: 0;
+			height: 100%; width: 100%;
+			height: calc(100% + 3px);
+		}
+		#header>div>ul>li:active{
+			border-bottom-width: 1px;
+		}
+		#header>div>ul>li:active>a{
+			margin-top: 1px;
+			outline: 1px dashed #EB5E2F;
+		}
+
+
+
+
+
+
+		/* dropdowns */
+		.dropDownItem{
+			position: relative;
+		}
+
+
+
+
+
+		/* dropdown link styling */
+		.dropDownItem>a>span:first-child{
+			position: relative;
+			display: block;
+			height: 18px; line-height: 18px;
+			top: 21px;
+			margin-bottom: 21px;
+		}
+		.dropDownItem>a>span:last-child{
+			position: relative;
+			display: block;
+			font-size: 12px;
+			height: 18px; line-height: 24px; 
+			margin-top: -3px;
+			-webkit-transform: rotate(180deg);
+			   -moz-transform: rotate(180deg);
+			    -ms-transform: rotate(180deg);
+			     -o-transform: rotate(180deg);
+			        transform: rotate(180deg);
+
+			-webkit-transition: all .36s;
+			   -moz-transition: all .36s;
+			    -ms-transition: all .36s;
+			     -o-transition: all .36s;
+			        transition: all .36s;
+		}
+
+		/* when dropdown is expanded styling */
+		.dropDownItem.expanded>span{
+			top: 0!important; left: 0!important;
+			height: 100%!important; width: 100%!important;
+			background-color: black;
+			opacity: 0.36!important;
+		}
+		.dropDownItem.expanded>a>span:last-child{
+			font-size: 12px!important;
+			margin-top: -3px!important;
+			-webkit-transform: rotate(0deg)!important;
+			   -moz-transform: rotate(0deg)!important;
+			    -ms-transform: rotate(0deg)!important;
+			     -o-transform: rotate(0deg)!important;
+			        transform: rotate(0deg)!important;
+		}
+
+		/* Animations */
+		.dropDownItem>a:hover>span:last-child{
+			font-size: 9px;
+			margin-top: 0px;
+			-webkit-transform: rotate(540deg);
+			   -moz-transform: rotate(540deg);
+			    -ms-transform: rotate(540deg);
+			     -o-transform: rotate(540deg);
+			        transform: rotate(540deg);
+		}
+		.dropDownItem>a:active>span:last-child{
+			font-size: 6px;
+		}
+
+
+		/* dropdown menu */
+		
+		/* collapsed -- these have been set for animations*/
+		.dropDownItem>ul{
+			display: block; overflow: hidden;
+			height: 0; width: 0;
+			-webkit-transition: all .24s;
+			   -moz-transition: all .24s;
+			    -ms-transition: all .24s;
+			     -o-transition: all .24s;
+			        transition: all .24s;
+		}
+		.dropDownItem>ul>li{
+			height: 0px; width: 0;
+			-webkit-transition: all .48s;
+			   -moz-transition: all .48s;
+			    -ms-transition: all .48s;
+			     -o-transition: all .48s;
+			        transition: all .48s;
+		}
+		.dropDownItem>ul>li>a{
+			-webkit-transition: background-color .36s;
+			   -moz-transition: background-color .36s;
+			    -ms-transition: background-color .36s;
+			     -o-transition: background-color .36s;
+			        transition: background-color .36s;
+		}
+
+
+		/*expanded*/
+
+		.dropDownItem.expanded>ul{
+			position: absolute;
+			top: calc(100% + 3px);
+			width: 100%;
+			height: auto;
+			z-index: 5;
+			background-color: #f9fbfb;
+			box-shadow: 0px 0px 6px -3px #424242;
+			border-right: 2px solid #EDF2F2;
+
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		
+		/* expanded link items */
+
+		.dropDownItem.expanded>ul>li{ /* link item container */
+			display: block;
+			height: 36px; width: 100%;
+			line-height: 36px;
+			text-align: center;
+		}
+		.dropDownItem.expanded>ul>li>a{
+			display: block;
+			height: 36px; width: 100%;
+			font-size: 9px;
+			color: #424242;
+			text-decoration: none;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.dropDownItem.expanded>ul>li>a:hover{
+			background-color: #E6E9EB;
+		}
+		.dropDownItem.expanded>ul>li>a:active{
+			background-color: #D2D5D6;
+		}
+
+
+
+
+		/* Colors -- you can make your own following the styles set for the iterations below */
+
+		/* 1 -- Crush */
+
+			/* Base colors */
+			#header>div>ul>li[data-colorI="1"]{
+				background-color: #EB5E2F;
+				border-bottom-color: #D44E22;
+			}
+			#header>div>ul>li[data-colorI="1"]>a{
+				color: #E6E5E3;
+			}
+
+			/* Animations */
+			#header>div>ul>li[data-colorI="1"]:hover{
+				background-color: #D44E22;
+				border-bottom-color: #9E3C1B;
+			}
+			#header>div>ul>li[data-colorI="1"]:hover>a{
+				color: #EBF0F0;
+			}
+			#header>div>ul>li[data-colorI="1"]:active{
+				background-color: #9E3C1B;
+				border-bottom-color: #9E3C1B;
+			}
+			#header>div>ul>li[data-colorI="1"]:active>a{
+				color: #C7C9C9;
+			}
+
+
+			/* Active colors */
+			#header>div>ul>li[data-colorI="1"]#currentPageIndicator, #header>div>ul>li[data-colorI="1"].dropDownItem.expanded{
+				background-color: #D44E22;
+				border-bottom-color: #9E3C1B;
+			}
+			#header>div>ul>li[data-colorI="1"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="1"].dropDownItem.expanded>a{
+				color: #575117;
+			}
+
+
+
+
+		/* 2 -- Bubble Gum */
+
+			/* Base colors */
+			#header>div>ul>li[data-colorI="2"]{
+				background-color: #F2556D;
+				border-bottom-color: #BF5465;
+			}
+			#header>div>ul>li[data-colorI="2"]>a{
+				color: #E6E5E3;
+			}
+
+			/* Animations */
+			#header>div>ul>li[data-colorI="2"]:hover{
+				background-color: #D1495E;
+				border-bottom-color: #BD5968;
+			}
+			#header>div>ul>li[data-colorI="2"]:hover>a{
+				color: #EBF0F0;
+			}
+			#header>div>ul>li[data-colorI="2"]:active{
+				background-color: #A1505D;
+				border-bottom-color: #BF5465;
+			}
+			#header>div>ul>li[data-colorI="2"]:active>a{
+				color: #C7C9C9;
+			}
+
+			/* Active colors */
+			#header>div>ul>li[data-colorI="2"]#currentPageIndicator, #header>div>ul>li[data-colorI="2"].dropDownItem.expanded{
+				background-color: #D1495E;
+				border-bottom-color: #BD5968;
+			}
+			#header>div>ul>li[data-colorI="2"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="2"].dropDownItem.expanded>a{
+				color: #575117;
+			}
+
+
+
+		/* 3 -- Cherry */
+
+			/* Base colors */
+			#header>div>ul>li[data-colorI="3"]{
+				background-color: #C24641;
+				border-bottom-color: #913430;
+			}
+			#header>div>ul>li[data-colorI="3"]>a{
+				color: #E6E5E3;
+			}
+
+			/* Animations */
+			#header>div>ul>li[data-colorI="3"]:hover{
+				background-color: #AD3934;
+				border-bottom-color: #6E2421;
+			}
+			#header>div>ul>li[data-colorI="3"]:hover>a{
+				color: #EBF0F0;
+			}
+			#header>div>ul>li[data-colorI="3"]:active{
+				background-color: #6E2421;
+				border-bottom-color: #913430;
+			}
+			#header>div>ul>li[data-colorI="3"]:active>a{
+				color: #C7C9C9;
+			}
+
+			/* Active colors */
+			#header>div>ul>li[data-colorI="3"]#currentPageIndicator, #header>div>ul>li[data-colorI="3"].dropDownItem.expanded{
+				background-color: #AD3934;
+				border-bottom-color: #6E2421;
+			}
+			#header>div>ul>li[data-colorI="3"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="3"].dropDownItem.expanded>a{
+				color: #575117;
+			}
+
+
+
+		/* 4 -- Kiwi */
+
+			/* Base colors */
+			#header>div>ul>li[data-colorI="4"]{
+				background-color: #3CBA4C;
+				border-bottom-color: #2E853A;
+			}
+			#header>div>ul>li[data-colorI="4"]>a{
+				color: #E6E5E3;
+			}
+
+			/* Animations */
+			#header>div>ul>li[data-colorI="4"]:hover{
+				background-color: #349E42;
+				border-bottom-color: #576912;
+			}
+			#header>div>ul>li[data-colorI="4"]:hover>a{
+				color: #EBF0F0;
+			}
+			#header>div>ul>li[data-colorI="4"]:active{
+				background-color: #576912;
+				border-bottom-color: #2E853A;
+			}
+			#header>div>ul>li[data-colorI="4"]:active>a{
+				color: #C7C9C9;
+			}
+
+			/* Active colors */
+			#header>div>ul>li[data-colorI="4"]#currentPageIndicator, #header>div>ul>li[data-colorI="4"].dropDownItem.expanded{
+				background-color: #349E42;
+				border-bottom-color: #576912;
+			}
+			#header>div>ul>li[data-colorI="4"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="4"].dropDownItem.expanded>a{
+				color: #575117;
+			}
+
+
+
+		/* 5 -- Blueberry */
+
+			/* Base colors */
+			#header>div>ul>li[data-colorI="5"]{
+				background-color: #1569BD;
+				border-bottom-color: #1C538A;
+			}
+			#header>div>ul>li[data-colorI="5"]>a{
+				color: #E6E5E3;
+			}
+
+			/* Animations */
+			#header>div>ul>li[data-colorI="5"]:hover{
+				background-color: #1C538A;
+				border-bottom-color: #133354;
+			}
+			#header>div>ul>li[data-colorI="5"]:hover>a{
+				color: #EBF0F0;
+			}
+			#header>div>ul>li[data-colorI="5"]:active{
+				background-color: #133354;
+				border-bottom-color: #1C538A;
+			}
+			#header>div>ul>li[data-colorI="5"]:active>a{
+				color: #C7C9C9;
+			}
+
+			/* Active colors */
+			#header>div>ul>li[data-colorI="5"]#currentPageIndicator, #header>div>ul>li[data-colorI="5"].dropDownItem.expanded{
+				background-color: #1C538A;
+				border-bottom-color: #133354;
+			}
+			#header>div>ul>li[data-colorI="5"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="5"].dropDownItem.expanded>a{
+				color: #575117;
+			}
+
+
+
+		/* 6 -- Blueberry */
+
+			/* Base colors */
+			#header>div>ul>li[data-colorI="6"]{
+				background-color: #A53DBF;
+				border-bottom-color: #772D8A;
+			}
+			#header>div>ul>li[data-colorI="6"]>a{
+				color: #E6E5E3;
+			}
+
+			/* Animations */
+			#header>div>ul>li[data-colorI="6"]:hover{
+				background-color: #772D8A;
+				border-bottom-color: #4E195C;
+			}
+			#header>div>ul>li[data-colorI="6"]:hover>a{
+				color: #EBF0F0;
+			}
+			#header>div>ul>li[data-colorI="6"]:active{
+				background-color: #4E195C;
+				border-bottom-color: #772D8A;
+			}
+			#header>div>ul>li[data-colorI="6"]:active>a{
+				color: #C7C9C9;
+			}
+
+			/* Active colors */
+			#header>div>ul>li[data-colorI="6"]#currentPageIndicator, #header>div>ul>li[data-colorI="6"].dropDownItem.expanded{
+				background-color: #772D8A;
+				border-bottom-color: #4E195C;
+			}
+			#header>div>ul>li[data-colorI="6"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="6"].dropDownItem.expanded>a{
+				color: #575117;
+			}
+
+	</style>
+</head>
+<body>
+	<h1>3. &ndash; 'Sweet'</h1>
+	
+	<div id="header">
+		<div>
+			<a href="">
+				<div></div>
+				<div><img src="https://ct.mob0.com/Logo/Candy.png"></div>
+			</a>
+			<!-- Use your own logo | this is from http://cooltext.com/ -->
+			<ul>
+				<li id="currentPageIndicator">
+					<a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Home</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">About</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Events</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Contact</a>
+					<span></span>
+				</li>
+				<li class="dropDownItem" onclick="if($(this).hasClass('expanded')) $(this).removeClass('expanded');else $(this).addClass('expanded');">
+					<a href="#">
+						<span>More</span>
+						<span>^</span>
+					</a>
+					<span></span>
+					<ul>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Social</a></li>
+						<li><a href="#">Our team</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<a href="">Click to re-color navs</a>
+	<pre>
+&lt;!-- 
+	make sure jQuery is loaded. modify as you wish :)
+--&gt;
+
+&lt;div id="header">
+	&lt;div>
+		&lt;a href="">
+			&lt;div>&lt;/div>
+			&lt;div>&lt;img src="https://ct.mob0.com/Logo/Candy.png">&lt;/div>
+		&lt;/a>
+		&lt;!-- Use your own logo | this is from http://cooltext.com/ -->
+		&lt;ul>
+			&lt;li id="currentPageIndicator">
+				&lt;a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Home&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+			&lt;li>
+				&lt;a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">About&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+			&lt;li>
+				&lt;a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Events&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+			&lt;li>
+				&lt;a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Contact&lt;/a>
+				&lt;span>&lt;/span>
+			&lt;/li>
+			&lt;li class="dropDownItem" onclick="if($(this).hasClass('expanded')) $(this).removeClass('expanded');else $(this).addClass('expanded');">
+				&lt;a href="#">
+					&lt;span>More&lt;/span>
+					&lt;span>^&lt;/span>
+				&lt;/a>
+				&lt;span>&lt;/span>
+				&lt;ul>
+					&lt;li>&lt;a href="#">Blog&lt;/a>&lt;/li>
+					&lt;li>&lt;a href="#">Social&lt;/a>&lt;/li>
+					&lt;li>&lt;a href="#">Our team&lt;/a>&lt;/li>
+				&lt;/ul>
+			&lt;/li>
+		&lt;/ul>
+	&lt;/div>
+&lt;/div>
+
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+/*-----  upper navigation bar  -----*/
+#header *{
+	font-family: "Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,AppleGothic,sans-serif!important;
+}
+#header{
+	position: fixed;top: 0; left: 0; /*pinned to the top*/
+	width: 100%; height: 60px; /*### -- header height -- ###*/
+	box-shadow: 0px 1px 6px -3px #424242; /*### -- header box shadow -- ###*/
+	background-color: #f9fbfb; /*### -- header background color -- ###*/
+	z-index: 5; /*### -- header z-index -- ###*/
+}
+
+/* position the bar at the top (no longer fixed) if window width is very small */
+@media (max-width: 600px) { /* must match 'min-width' in #header>div styling below, adjust this accordingly */
+	#header{
+		position: absolute;
+	}
+}
+#header>div{
+	position: relative;
+	vertical-align: center;
+	margin: 0 auto;
+	height: 60px;  width: 100%;  /*### -- match header height and width -- ###*/
+	max-width: 1080px; min-width: 600px;  /*### -- adjust min-width based on how many items you decide to put in the navs -- ###*/
+}
+
+
+
+
+/* Logo container */
+#header>div>a{
+	display: block;
+	width: 120px; height: 60px; line-height: 60px;
+	float: left; position: relative;
+}
+	/* Centering the image */
+	#header>div>a>div:first-child{
+		padding-top: 100%;
+	}
+	#header>div>a>div:last-child{
+		position: absolute;
+		top: 0; bottom: 0; left: 0; right: 0;
+		text-align: center;
+		font: 0/0 a;
+	}
+	#header>div>a>div:last-child:before{
+		content: ' ';
+		display: inline-block;
+		vertical-align: middle;
+		height: 100%;
+	}
+	#header>div>a>div:last-child>img{
+		display: inline-block;
+		vertical-align: middle;
+		max-height: 36px; max-width: 114px;
+	}
+	#header>div>a:active>div:last-child>img{
+		outline: 2px dotted #EB5E2F;
+	}
+
+
+
+/* The links */
+#header>div>ul{
+	display: block;
+	height: 60px;
+	float: right;
+}
+#header>div>ul>li{
+	display: block;
+	height: 60px; width: 90px;
+	float: left;
+	position: relative;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: background-color .36s, border .12s;
+	   -moz-transition: background-color .36s, border .12s;
+	    -ms-transition: background-color .36s, border .12s;
+	     -o-transition: background-color .36s, border .12s;
+	        transition: background-color .36s, border .12s;
+}
+#header>div>ul>li#currentPageIndicator{
+	border-bottom-width: 4px!important;
+}
+#header>div>ul>li>a{
+	display: block;
+	height: 60px; line-height: 60px;
+	text-decoration: none;
+	font-size: 12px;
+	text-align: center;
+	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
+	position: relative;
+	z-index: 1;
+
+	-webkit-transition: margin .12s, color .36s;
+	   -moz-transition: margin .12s, color .36s;
+	    -ms-transition: margin .12s, color .36s;
+	     -o-transition: margin .12s, color .36s;
+	        transition: margin .12s, color .36s;
+}
+#header>div>ul>li#currentPageIndicator>a{
+	text-shadow: none;
+	text-decoration: underline;
+}
+
+/* slight animation on hover item */
+#header>div>ul>li>span{
+	display: block; position: absolute;
+	height: 0; width: 0;
+	top: 50%; left: 50%;
+	background-color: #f9fbfb; opacity: 0.036;
+	z-index: 0;
+
+	-webkit-transition: all .48s;
+	   -moz-transition: all .48s;
+	    -ms-transition: all .48s;
+	     -o-transition: all .48s;
+	        transition: all .48s;
+}
+#header>div>ul>li#currentPageIndicator>span{
+	top: 0; left: 0;
+	height: calc(100% + 4px); width: 100%;
+	background-color: #f9fbfb;
+	opacity: 0.96;
+	border-bottom: 4px solid #EBEBEB;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+
+
+/* Link animations */
+
+#header>div>ul>li:hover{
+	border-bottom-width: 3px;
+}
+#header>div>ul>li:hover>span{
+	top: 0; left: 0;
+	height: 100%; width: 100%;
+	height: calc(100% + 3px);
+}
+#header>div>ul>li:active{
+	border-bottom-width: 1px;
+}
+#header>div>ul>li:active>a{
+	margin-top: 1px;
+	outline: 1px dashed #EB5E2F;
+}
+
+
+
+
+
+
+/* dropdowns */
+.dropDownItem{
+	position: relative;
+}
+
+
+
+
+
+/* dropdown link styling */
+.dropDownItem>a>span:first-child{
+	position: relative;
+	display: block;
+	height: 18px; line-height: 18px;
+	top: 21px;
+	margin-bottom: 21px;
+}
+.dropDownItem>a>span:last-child{
+	position: relative;
+	display: block;
+	font-size: 12px;
+	height: 18px; line-height: 24px; 
+	margin-top: -3px;
+	-webkit-transform: rotate(180deg);
+	   -moz-transform: rotate(180deg);
+	    -ms-transform: rotate(180deg);
+	     -o-transform: rotate(180deg);
+	        transform: rotate(180deg);
+
+	-webkit-transition: all .36s;
+	   -moz-transition: all .36s;
+	    -ms-transition: all .36s;
+	     -o-transition: all .36s;
+	        transition: all .36s;
+}
+
+/* when dropdown is expanded styling */
+.dropDownItem.expanded>span{
+	top: 0!important; left: 0!important;
+	height: 100%!important; width: 100%!important;
+	background-color: black;
+	opacity: 0.36!important;
+}
+.dropDownItem.expanded>a>span:last-child{
+	font-size: 12px!important;
+	margin-top: -3px!important;
+	-webkit-transform: rotate(0deg)!important;
+	   -moz-transform: rotate(0deg)!important;
+	    -ms-transform: rotate(0deg)!important;
+	     -o-transform: rotate(0deg)!important;
+	        transform: rotate(0deg)!important;
+}
+
+/* Animations */
+.dropDownItem>a:hover>span:last-child{
+	font-size: 9px;
+	margin-top: 0px;
+	-webkit-transform: rotate(540deg);
+	   -moz-transform: rotate(540deg);
+	    -ms-transform: rotate(540deg);
+	     -o-transform: rotate(540deg);
+	        transform: rotate(540deg);
+}
+.dropDownItem>a:active>span:last-child{
+	font-size: 6px;
+}
+
+
+/* dropdown menu */
+
+/* collapsed -- these have been set for animations*/
+.dropDownItem>ul{
+	display: block; overflow: hidden;
+	height: 0; width: 0;
+	-webkit-transition: all .24s;
+	   -moz-transition: all .24s;
+	    -ms-transition: all .24s;
+	     -o-transition: all .24s;
+	        transition: all .24s;
+}
+.dropDownItem>ul>li{
+	height: 0px; width: 0;
+	-webkit-transition: all .48s;
+	   -moz-transition: all .48s;
+	    -ms-transition: all .48s;
+	     -o-transition: all .48s;
+	        transition: all .48s;
+}
+.dropDownItem>ul>li>a{
+	-webkit-transition: background-color .36s;
+	   -moz-transition: background-color .36s;
+	    -ms-transition: background-color .36s;
+	     -o-transition: background-color .36s;
+	        transition: background-color .36s;
+}
+
+
+/*expanded*/
+
+.dropDownItem.expanded>ul{
+	position: absolute;
+	top: calc(100% + 3px);
+	width: 100%;
+	height: auto;
+	z-index: 5;
+	background-color: #f9fbfb;
+	box-shadow: 0px 0px 6px -3px #424242;
+	border-right: 2px solid #EDF2F2;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+/* expanded link items */
+
+.dropDownItem.expanded>ul>li{ /* link item container */
+	display: block;
+	height: 36px; width: 100%;
+	line-height: 36px;
+	text-align: center;
+}
+.dropDownItem.expanded>ul>li>a{
+	display: block;
+	height: 36px; width: 100%;
+	font-size: 9px;
+	color: #424242;
+	text-decoration: none;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.dropDownItem.expanded>ul>li>a:hover{
+	background-color: #E6E9EB;
+}
+.dropDownItem.expanded>ul>li>a:active{
+	background-color: #D2D5D6;
+}
+
+
+
+
+/* Colors -- you can make your own following the styles set for the iterations below */
+
+/* 1 -- Crush */
+
+	/* Base colors */
+	#header>div>ul>li[data-colorI="1"]{
+		background-color: #EB5E2F;
+		border-bottom-color: #D44E22;
+	}
+	#header>div>ul>li[data-colorI="1"]>a{
+		color: #E6E5E3;
+	}
+
+	/* Animations */
+	#header>div>ul>li[data-colorI="1"]:hover{
+		background-color: #D44E22;
+		border-bottom-color: #9E3C1B;
+	}
+	#header>div>ul>li[data-colorI="1"]:hover>a{
+		color: #EBF0F0;
+	}
+	#header>div>ul>li[data-colorI="1"]:active{
+		background-color: #9E3C1B;
+		border-bottom-color: #9E3C1B;
+	}
+	#header>div>ul>li[data-colorI="1"]:active>a{
+		color: #C7C9C9;
+	}
+
+
+	/* Active colors */
+	#header>div>ul>li[data-colorI="1"]#currentPageIndicator, #header>div>ul>li[data-colorI="1"].dropDownItem.expanded{
+		background-color: #D44E22;
+		border-bottom-color: #9E3C1B;
+	}
+	#header>div>ul>li[data-colorI="1"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="1"].dropDownItem.expanded>a{
+		color: #575117;
+	}
+
+
+
+
+/* 2 -- Bubble Gum */
+
+	/* Base colors */
+	#header>div>ul>li[data-colorI="2"]{
+		background-color: #F58092;
+		border-bottom-color: #BF5465;
+	}
+	#header>div>ul>li[data-colorI="2"]>a{
+		color: #E6E5E3;
+	}
+
+	/* Animations */
+	#header>div>ul>li[data-colorI="2"]:hover{
+		background-color: #D1495E;
+		border-bottom-color: #BD5968;
+	}
+	#header>div>ul>li[data-colorI="2"]:hover>a{
+		color: #EBF0F0;
+	}
+	#header>div>ul>li[data-colorI="2"]:active{
+		background-color: #A1505D;
+		border-bottom-color: #BF5465;
+	}
+	#header>div>ul>li[data-colorI="2"]:active>a{
+		color: #C7C9C9;
+	}
+
+	/* Active colors */
+	#header>div>ul>li[data-colorI="2"]#currentPageIndicator, #header>div>ul>li[data-colorI="2"].dropDownItem.expanded{
+		background-color: #D1495E;
+		border-bottom-color: #BD5968;
+	}
+	#header>div>ul>li[data-colorI="2"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="2"].dropDownItem.expanded>a{
+		color: #575117;
+	}
+
+
+
+/* 3 -- Cherry */
+
+	/* Base colors */
+	#header>div>ul>li[data-colorI="3"]{
+		background-color: #C24641;
+		border-bottom-color: #913430;
+	}
+	#header>div>ul>li[data-colorI="3"]>a{
+		color: #E6E5E3;
+	}
+
+	/* Animations */
+	#header>div>ul>li[data-colorI="3"]:hover{
+		background-color: #AD3934;
+		border-bottom-color: #6E2421;
+	}
+	#header>div>ul>li[data-colorI="3"]:hover>a{
+		color: #EBF0F0;
+	}
+	#header>div>ul>li[data-colorI="3"]:active{
+		background-color: #6E2421;
+		border-bottom-color: #913430;
+	}
+	#header>div>ul>li[data-colorI="3"]:active>a{
+		color: #C7C9C9;
+	}
+
+	/* Active colors */
+	#header>div>ul>li[data-colorI="3"]#currentPageIndicator, #header>div>ul>li[data-colorI="3"].dropDownItem.expanded{
+		background-color: #AD3934;
+		border-bottom-color: #6E2421;
+	}
+	#header>div>ul>li[data-colorI="3"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="3"].dropDownItem.expanded>a{
+		color: #575117;
+	}
+
+
+
+/* 4 -- Kiwi */
+
+	/* Base colors */
+	#header>div>ul>li[data-colorI="4"]{
+		background-color: #3CBA4C;
+		border-bottom-color: #2E853A;
+	}
+	#header>div>ul>li[data-colorI="4"]>a{
+		color: #E6E5E3;
+	}
+
+	/* Animations */
+	#header>div>ul>li[data-colorI="4"]:hover{
+		background-color: #349E42;
+		border-bottom-color: #576912;
+	}
+	#header>div>ul>li[data-colorI="4"]:hover>a{
+		color: #EBF0F0;
+	}
+	#header>div>ul>li[data-colorI="4"]:active{
+		background-color: #576912;
+		border-bottom-color: #2E853A;
+	}
+	#header>div>ul>li[data-colorI="4"]:active>a{
+		color: #C7C9C9;
+	}
+
+	/* Active colors */
+	#header>div>ul>li[data-colorI="4"]#currentPageIndicator, #header>div>ul>li[data-colorI="4"].dropDownItem.expanded{
+		background-color: #349E42;
+		border-bottom-color: #576912;
+	}
+	#header>div>ul>li[data-colorI="4"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="4"].dropDownItem.expanded>a{
+		color: #575117;
+	}
+
+
+
+/* 5 -- Blueberry */
+
+	/* Base colors */
+	#header>div>ul>li[data-colorI="5"]{
+		background-color: #1569BD;
+		border-bottom-color: #1C538A;
+	}
+	#header>div>ul>li[data-colorI="5"]>a{
+		color: #E6E5E3;
+	}
+
+	/* Animations */
+	#header>div>ul>li[data-colorI="5"]:hover{
+		background-color: #1C538A;
+		border-bottom-color: #133354;
+	}
+	#header>div>ul>li[data-colorI="5"]:hover>a{
+		color: #EBF0F0;
+	}
+	#header>div>ul>li[data-colorI="5"]:active{
+		background-color: #133354;
+		border-bottom-color: #1C538A;
+	}
+	#header>div>ul>li[data-colorI="5"]:active>a{
+		color: #C7C9C9;
+	}
+
+	/* Active colors */
+	#header>div>ul>li[data-colorI="5"]#currentPageIndicator, #header>div>ul>li[data-colorI="5"].dropDownItem.expanded{
+		background-color: #1C538A;
+		border-bottom-color: #133354;
+	}
+	#header>div>ul>li[data-colorI="5"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="5"].dropDownItem.expanded>a{
+		color: #575117;
+	}
+
+
+
+/* 6 -- Blueberry */
+
+	/* Base colors */
+	#header>div>ul>li[data-colorI="6"]{
+		background-color: #A53DBF;
+		border-bottom-color: #772D8A;
+	}
+	#header>div>ul>li[data-colorI="6"]>a{
+		color: #E6E5E3;
+	}
+
+	/* Animations */
+	#header>div>ul>li[data-colorI="6"]:hover{
+		background-color: #772D8A;
+		border-bottom-color: #4E195C;
+	}
+	#header>div>ul>li[data-colorI="6"]:hover>a{
+		color: #EBF0F0;
+	}
+	#header>div>ul>li[data-colorI="6"]:active{
+		background-color: #4E195C;
+		border-bottom-color: #772D8A;
+	}
+	#header>div>ul>li[data-colorI="6"]:active>a{
+		color: #C7C9C9;
+	}
+
+	/* Active colors */
+	#header>div>ul>li[data-colorI="6"]#currentPageIndicator, #header>div>ul>li[data-colorI="6"].dropDownItem.expanded{
+		background-color: #772D8A;
+		border-bottom-color: #4E195C;
+	}
+	#header>div>ul>li[data-colorI="6"]#currentPageIndicator>a, #header>div>ul>li[data-colorI="6"].dropDownItem.expanded>a{
+		color: #575117;
+	}
+
+	</pre>
+	<pre>
+// make sure u have jquery loaded! :)
+
+// for demo purposes: randomly assigns colors to each link item in the list
+	// --> you will have to custom enter data-colorI="{1-6}" into every li item based on which color you prefer to use for it
+var usedRands = [];
+$(document).ready(function() {
+	$('#header>div>ul>li').each(function() {
+		var rand = (parseInt(Math.random() * 10)%6 + 1);
+		while (usedRands.indexOf(rand) !== -1)
+			rand = (parseInt(Math.random() * 10)%5 + 1);
+
+		usedRands.push(rand);
+		$(this).attr('data-colorI', rand);
+	});
+});
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+
+		// for demo purposes: randomly assigns colors to each link item in the list
+
+			// --> you can custom enter data-colorI="{1-6}" into every li item based on which color you prefer to use for it
+		var usedRands = [];
+		$(document).ready(function() {
+			$('#header>div>ul>li').each(function() {
+				var rand = (parseInt(Math.random() * 10)%6 + 1);
+				while (usedRands.indexOf(rand) !== -1)
+					rand = (parseInt(Math.random() * 10)%5 + 1);
+
+				usedRands.push(rand);
+				$(this).attr('data-colorI', rand);
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+@font-face {
+	font-family: 'shitNigga';
+	font-style: normal;
+	font-weight: 400;
+	src: 
+		 url('fonts/ColabThi.otf');/*url('fonts/Quicksand-Regular.eot'),*/
+}
+
+body{
+	background-color: #f9fbfb;
+}
+*{
+	font-family: 'shitNigga'!important;
+}
+a{
+	color: #398CA6;
+	text-decoration: none;
+}
+a:active{
+	outline: 2px dotted #8ca4ac!important;
+}
+
+.stopScroll{
+	overflow: hidden!important;
+}

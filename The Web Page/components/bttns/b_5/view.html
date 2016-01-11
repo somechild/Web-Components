@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+<head>
+	<title>B_5 View</title>
+
+	<link rel="stylesheet" type="text/css" href="../../../gbrs.css">
+	<style type="text/css">
+		pre{
+			display: none;
+		}
+		*{
+			font-family: "Segoe UI",Frutiger,"Frutiger Linotype","Dejavu Sans","Helvetica Neue",Arial,sans-serif!important;
+		}
+		body{
+			background-color: #FCFCFc;
+		}
+		h1{
+			margin-top: 48px;
+			padding-left: 48px;
+			font-size: 18px;
+			color: #686869;
+			text-align: center;
+			font-style: italic;
+		}
+		table{
+			display: block;
+			width: 100%; height: auto;
+			padding: 48px;
+			padding-top: 12px;
+			-webkit-box-sizing: border-box;
+			   -moz-box-sizing: border-box;
+			        box-sizing: border-box;
+		}
+		tbody{
+			width: 100%; height: auto;
+			display: block;
+			overflow: hidden;
+		}
+		tr{
+			display: block;
+			width: 100%;
+		}
+		td{
+			display: block;
+			width: 50%;
+			float: left;
+		}
+		td a{
+			margin: 0 auto;
+			position: relative;
+		}
+		td p{
+			font-size: 9px;
+			text-align: center;
+			margin-top: 24px;
+			margin-bottom: 12px;
+			color: #212121;
+		}
+		b{
+			font-weight: bold;
+		}
+
+
+		/*
+			comments with formatting as follows:
+				/*### -- comment here -- ###
+			will all contain colors which you can modify as per your needs
+			read the other comments and CSS to modify as you wish :)
+		*/
+
+		/* general button styling */
+
+		.stdBttn{
+			display: block;
+			text-align: center;
+			text-decoration: none;
+			margin-bottom: 12px; margin-top: 12px;
+			
+			font-size: 10px;
+
+
+			box-shadow: 0px 0px 6px -3px black;
+
+
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		/* Rectangular button properties */
+		.stdBttn.rectd{
+			width: 90px;
+			height: 48px; line-height: 48px; /* IF YOU CHANGE HEIGHT CHANGE ALL COMMENTS below WITH TAG (1) ACCORDINGLY */
+			border-radius: 6px;
+			border-bottom: 3px solid;
+		}
+		.stdBttn.rectd:hover{
+			border-bottom-width: 4px;
+			line-height: calc(48px - 1px); /* ## (1) ## line-height 1 less than current button height | modify current button height accordingly */
+		}
+		.stdBttn.rectd:active{
+			border-bottom-width: 2px;
+
+			line-height: calc(48px + 1px); /* ## (1) ## line-height 1 more than current button height | modify current button height accordingly */
+		}
+
+		
+		/* Circled button properties */
+		.stdBttn.circld{
+			width: 60px; height: 60px; line-height: 60px;
+			border-radius: 100%;
+			border-bottom: 2px solid;
+		}
+		.stdBttn.circld:hover{
+			border-bottom-width: 3px;
+
+			line-height: calc(60px - 1px); /* ## (1) ## line-height 1 less than current button height | modify current button height accordingly */
+		}
+		.stdBttn.circld:active{
+			border-bottom-width: 1px;
+
+			line-height: calc(60px + 1px); /* ## (1) ## line-height 1 more than current button height | modify current button height accordingly */
+		}
+	
+		
+
+		/* Color classes */
+		.stdBttn.papaya{
+			background-color: #E56717;
+			color: #F0E7E1;
+			border-bottom-color: #A64B11;
+		}
+		.stdBttn.grape{
+			background-color: #5E5A80;
+			color: #EBE1F2;
+			border-bottom-color: #22212E;
+		}
+		.stdBttn.lemon{
+			background-color: #FFF8C6;
+			color: #8F8056;
+			border-bottom-color: #CCBC91;
+		}
+		.stdBttn.forest{
+			background-color: #254117;
+			color: #CCD9C5;
+			border-bottom-color: #939E8D;
+		}
+		.stdBttn.baby{
+			background-color: #59AEDE;
+			color: #F7F9FA;
+			border-bottom-color: #2574A1;
+		}
+		.stdBttn.yukon{
+			background-color: #FFD700;
+			color: #2B2500;
+			border-bottom-color: #D4B302;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>5. &ndash; 'Standard'</h1>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<p><b>Rectangular:</b> Papaya</p>
+					<a href="#" class="stdBttn rectd papaya">
+						Okay
+					</a>
+
+				</td>
+				<td>
+					<p><b>Rectangular:</b> Grape</p>
+					<a href="#" class="stdBttn rectd grape">
+						Okay
+					</a>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p><b>Rectangular:</b> Lemon Chiffon</p>
+					<a href="#" class="stdBttn rectd lemon">
+						Okay
+					</a>
+
+				</td>
+				<td>
+					<p><b>Rectangular:</b> Forest</p>
+					<a href="#" class="stdBttn rectd forest">
+						Okay
+					</a>
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p><b>Rectangular:</b> Yukon</p>
+					<a href="#" class="stdBttn rectd yukon">
+						Okay
+					</a>
+
+				</td>
+				<td>
+					<p><b>Circular:</b> baby</p>
+					<a href="#" class="stdBttn circld baby">
+						Okay
+					</a>
+
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<pre>
+&lt;a href="#" class="stdBttn {shapeClass} {colorClass}"&gt;
+	{bttnText}
+&lt;/a&gt;
+
+
+&lt;!-- 
+	{shapeClass} can be: 'circld' or 'rectd'
+	{colorClass} can be: 'papaya', 'grape', 'lemon', 'forest', 'yukon', 'baby' or your own!
+--&gt;
+	</pre>
+	<pre>
+/* make sure you do a CSS global reset */
+
+/*
+	comments with formatting as follows:
+		/*### -- comment here -- ###
+	will all contain colors which you can modify as per your needs
+	read the other comments and CSS to modify as you wish :)
+*/
+
+/* general button styling */
+.stdBttn{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	margin-bottom: 12px; margin-top: 12px;
+	
+	font-size: 10px;
+
+
+	box-shadow: 0px 0px 6px -3px black;
+
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* Rectangular button properties */
+.stdBttn.rectd{
+	width: 90px;
+	height: 48px; line-height: 48px; /* IF YOU CHANGE HEIGHT CHANGE ALL COMMENTS below WITH TAG (1) ACCORDINGLY */
+	border-radius: 6px;
+	border-bottom: 3px solid;
+}
+.stdBttn.rectd:hover{
+	border-bottom-width: 4px;
+	line-height: calc(48px - 1px); /* ## (1) ## line-height 1 less than current button height | modify current button height accordingly */
+}
+.stdBttn.rectd:active{
+	border-bottom-width: 2px;
+
+	line-height: calc(48px + 1px); /* ## (1) ## line-height 1 more than current button height | modify current button height accordingly */
+}
+
+
+/* Circled button properties */
+.stdBttn.circld{
+	width: 60px; height: 60px; line-height: 60px;
+	border-radius: 100%;
+	border-bottom: 2px solid;
+}
+.stdBttn.circld:hover{
+	border-bottom-width: 3px;
+
+	line-height: calc(60px - 1px); /* ## (1) ## line-height 1 less than current button height | modify current button height accordingly */
+}
+.stdBttn.circld:active{
+	border-bottom-width: 1px;
+
+	line-height: calc(60px + 1px); /* ## (1) ## line-height 1 more than current button height | modify current button height accordingly */
+}
+
+
+
+/* Color classes */
+.stdBttn.papaya{
+	background-color: #E56717;
+	color: #F0E7E1;
+	border-bottom-color: #A64B11;
+}
+.stdBttn.grape{
+	background-color: #5E5A80;
+	color: #EBE1F2;
+	border-bottom-color: #22212E;
+}
+.stdBttn.lemon{
+	background-color: #FFF8C6;
+	color: #8F8056;
+	border-bottom-color: #CCBC91;
+}
+.stdBttn.forest{
+	background-color: #254117;
+	color: #CCD9C5;
+	border-bottom-color: #939E8D;
+}
+.stdBttn.baby{
+	background-color: #59AEDE;
+	color: #F7F9FA;
+	border-bottom-color: #2574A1;
+}
+.stdBttn.yukon{
+	background-color: #FFD700;
+	color: #2B2500;
+	border-bottom-color: #D4B302;
+}
+	</pre>
+	<pre>
+// no js for this! :)
+	</pre>
+
+	<script type="text/javascript" src="../../../jquery.min.js"></script>	
+	<script type="text/javascript">
+		// no js for this! :)
+	</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+#collectionContainer{
+	display: block;
+	width: 100%; height: auto;
+	padding-top: 30px;
+	background-color: #F5F7F8;
+	box-shadow: 0px 6px 12px -3px #CCCCCC;
+	position: relative;
+}
+#collectionContainer>div{
+	margin-bottom: 36px;
+	box-shadow: 0px 3px 18px -3px #CCCCCC;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 36px;
+	border-radius: 2px;
+	background-color: #FCFCFC;
+}
+#collectionContainer>div>h2{
+	font-size: 24px;
+	padding-bottom: 48px;
+	font-weight: bold;
+	color: #424242;
+	position: relative;
+}
+#collectionContainer>div>h2>span{
+	display: block;
+	height: 3px; width: 100%;
+	position: absolute;
+	bottom: 36px; left: 0;
+	background-color: #8ca4ac;
+
+}
+
+
+.itemGallery{
+	display: block;
+	width: 100%;
+	height: auto;
+	padding-bottom: 36px; padding-top: 36px;
+}
+.itemGallery>div{
+	width: 90%; margin-left: 5%;
+	height: auto;
+	padding-bottom: 24px;
+	padding-top: 24px;
+	background-color: #FAFAFA;
+	position: relative;
+}
+.itemGallery>div>span{
+	position: absolute;
+	width: 60%; height: calc(360px - 24px - 24px);
+	top: 48px; left: 5%;
+	z-index: 3;
+	background-color: white;
+	opacity: 0.6;
+	background-image: url('imgs/loadico.gif');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.itemGallery>div.isMedH>span{
+	height: calc(480px - 24px - 24px);
+}
+.itemGallery>div.isLargH>span{
+	height: calc(540px - 24px - 24px);
+}
+
+/*
+	not floating the two children of .itemGallery>div to the sides so that i can keep overflow visible for .itemGallery>div
+	--> if you check .itemGallery>div>div:first-of-type, it will be absolutely positioned to allow for this
+*/
+.itemGallery>div>iframe{
+	width: 60%;
+	margin-left: 5%;
+	height: calc(360px - 24px - 24px);
+	margin-top: 24px;
+	/*border: 2px dashed #8ca4ac;*/
+	z-index: -1;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding-top: 0px; padding-bottom: 0px;
+	border-radius: 2px 0px 0px 2px;
+	background-color: #FDFDFD;
+	border-left: 2px solid #8ca4ac;
+	border-bottom: 1px solid #F7F7F7;
+	border-top: 1px solid #DEDEDE;
+}
+.itemGallery>div.isMedH>iframe{
+	height: calc(480px - 24px - 24px);
+}
+.itemGallery>div.isLargH>iframe{
+	height: calc(540px - 24px - 24px);
+}
+/*.itemGallery>div>div:last-of-type{
+	display: none;
+}*/
+.itemGallery>div>div:first-of-type{
+	width: 25%;
+	position: absolute;
+	top: 24px; left: 65%;
+	margin-top: 24px;
+	background-color: #FDFDFD;
+	border-radius: 0px 2px 2px 0px;
+	border-right: 2px solid #8ca4ac;
+	border-bottom: 1px solid #F7F7F7;
+	border-top: 1px solid #DEDEDE;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.itemGallery>div>div:first-of-type>a{
+	display: block;
+	text-align: center;
+	height: calc((360px - 24px - 24px)/2); line-height: calc((360px - 24px - 24px)/2);
+	outline: none!important;
+	cursor: pointer;
+	border-radius: 0px 2px 2px 0px;
+	box-shadow: 0px -3px 6px -12px black;
+	border-left: 2px solid #F7F7F7;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .25s;
+	   -moz-transition: all .25s;
+	    -ms-transition: all .25s;
+	     -o-transition: all .25s;
+	        transition: all .25s;
+}
+.itemGallery>div.isMedH>div:first-of-type>a{
+	height: calc((480px - 24px - 24px)/2); line-height: calc((480px - 24px - 24px)/2);
+}
+.itemGallery>div.isLargH>div:first-of-type>a{
+	height: calc((540px - 24px - 24px)/2); line-height: calc((540px - 24px - 24px)/2);
+}
+
+
+.itemGallery>div>div:first-of-type>a:hover{
+	background-color: #F9F9F9;
+	box-shadow: 0px 0px 18px -6px #424242;
+	border-left: 2px solid #8ca4ac;
+}
+.itemGallery>div>div:first-of-type>a:active{
+	background-color: #DEDEDE;
+	box-shadow: 0px 3px 12px -9px #424242;
+}
+
+.makeThisShitFullScreened{
+	position: fixed!important;
+	top: 48px; left: 0;
+	height: 100%!important;
+	width: 100%!important;
+	z-index: 7!important;
+	margin: 0!important;
+	padding: 0!important;
+	border: none!important;
+}
+
+#exitFullScreenShit{
+	position: absolute; display: block;
+	width: 100%; height: 100%;
+	left: 0; top: 0; z-index: 5;
+	text-align: center; line-height: 48px; font-weight: bold; font-size: 18px;
+	background-color: #D85C43; color: #FAFAFA;
+	cursor: pointer;
+	overflow: hidden;
+	border-left: 2px solid #C7553F; border-right: 2px solid #C7553F;
+	opacity: 1;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	-webkit-transition: all .24s ease-out;
+	   -moz-transition: all .24s ease-out;
+	    -ms-transition: all .24s ease-out;
+	     -o-transition: all .24s ease-out;
+	        transition: all .24s ease-out;
+}
+#exitFullScreenShit:hover{
+	/*border-left: 0px solid #792B1C; border-right: 0px solid #792B1C;*/
+	background-color: #E4644A;
+}
+#exitFullScreenShit:active{
+	background-color: #792B1C;
+}
+#exitFullScreenShit>span{
+	position: absolute; display: block;
+	width: 0%; height: 100%;
+	background-color: rgba(270, 270, 270, 0.1);
+	z-index: 5;
+	top: 0; left: 0;
+
+	-webkit-transition: all .36s ease-in;
+	   -moz-transition: all .36s ease-in;
+	    -ms-transition: all .36s ease-in;
+	     -o-transition: all .36s ease-in;
+	        transition: all .36s ease-in;
+}
+#exitFullScreenShit:hover>span{
+	width: 60%;
+	left: 100%;
+
+	-webkit-transition: all .12s ease-in;
+	   -moz-transition: all .12s ease-in;
+	    -ms-transition: all .12s ease-in;
+	     -o-transition: all .12s ease-in;
+	        transition: all .12s ease-in;
+}
+.temporaryAnimationShit{
+	width: 0!important; height: 90%!important;
+	left: 50%!important; top: 6%!important;
+	background-color: #FAFAFA!important;
+	border-left: 2px solid #792B1C!important; border-right: 2px solid #792B1C!important;
+	opacity: 0.3!important;
+}
+.temporaryAnimationShit>span{
+	width: 100%!important;
+	left: 100%!important;
+}
+
+
+
+
+#codeStage{
+	position: fixed;
+	top: 48px; left: 0;
+	height: calc(100% - 48px); width: 100%;
+	background-color: #21424d;
+	z-index: 5;
+	overflow: auto;
+	opacity: 1;
+	-webkit-transition: all .3s;
+	   -moz-transition: all .3s;
+	    -ms-transition: all .3s;
+	     -o-transition: all .3s;
+	        transition: all .3s;
+}
+.codeStageAnimator{
+	left: 40%!important; top: 10%!important;
+	width: 20%!important; height: 80%!important;
+	opacity: 0!important;
+}
+#codeStage>h2{
+	text-align: center;
+	font-size: 24px;
+	color: #f9fbfb;
+	margin-top: 36px; margin-bottom: 24px;
+}
+#codeStage>div{
+	width: 804px;
+	position: relative; margin: 0 auto;
+	overflow: hidden;
+}
+#codeStage>div>p{
+	text-align: center;
+	color: #F3F3F3;
+}
+#codeStage>div>a{
+	display: block;
+	width: 33%;
+	float: left;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: underline;
+	margin-bottom: 48px;
+	margin-top: 12px;
+}
+
+#codeStage>p{
+	margin-bottom: 18px;
+	font-size: 18px;
+	text-align: center;
+	color: #d3d7d7;
+	text-decoration: underline;
+}
+#codeStage>pre{
+	display: block;
+	width: 804px;
+	position: relative; margin: 0 auto;
+	line-height: 24px;
+	padding: 24px;
+	margin-bottom: 48px;
+	background-color: #f9fbfb;
+	color: #21424d;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
