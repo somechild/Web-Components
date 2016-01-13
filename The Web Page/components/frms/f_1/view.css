@@ -243,7 +243,7 @@
 		display: block;
 		position: absolute;
 		top: 24px;
-		z-index: 2;
+		z-index: 3;
 		background-color: #F9F9F8;
 		height: auto; width: calc(240px + 12px);
 		border: 1px solid #7F98AD;

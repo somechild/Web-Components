@@ -52,6 +52,9 @@
 		b{
 			font-weight: bold;
 		}
+		a{
+			cursor: pointer;
+		}
 		body>a{
 			display: block;
 			text-align: center;
@@ -618,31 +621,31 @@
 			<!-- Use your own logo | this is from http://cooltext.com/ -->
 			<ul>
 				<li id="currentPageIndicator">
-					<a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Home</a>
+					<a onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Home</a>
 					<span></span>
 				</li>
 				<li>
-					<a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">About</a>
+					<a onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">About</a>
 					<span></span>
 				</li>
 				<li>
-					<a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Events</a>
+					<a onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Events</a>
 					<span></span>
 				</li>
 				<li>
-					<a href="#" onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Contact</a>
+					<a onclick="$('#currentPageIndicator').attr('id', '');$(this).parent().attr('id' ,'currentPageIndicator');">Contact</a>
 					<span></span>
 				</li>
 				<li class="dropDownItem" onclick="if($(this).hasClass('expanded')) $(this).removeClass('expanded');else $(this).addClass('expanded');">
-					<a href="#">
+					<a>
 						<span>More</span>
 						<span>^</span>
 					</a>
 					<span></span>
 					<ul>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">Social</a></li>
-						<li><a href="#">Our team</a></li>
+						<li><a>Blog</a></li>
+						<li><a>Social</a></li>
+						<li><a>Our team</a></li>
 					</ul>
 				</li>
 			</ul>
