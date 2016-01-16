@@ -1,4 +1,6 @@
 # Web-Components
-The code for http://jaypatel.co/sideSites/wc/. Basically made a site with a bunch of ideas I had for web components on my plane rides during Winter 2015 vacation.
+Basically made a web page with a bunch of ideas I had for website components on my plane rides during Winter 2015 vacation.
+
+View the page here: http://jaypatel.co/sideSites/wc/
 
 I'll update whenever I get another idea and have the chance to. Enjoy :)
