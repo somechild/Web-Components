@@ -7,3 +7,7 @@ I'll update whenever I get another idea and have the chance to. Enjoy :)
 
 ## License
 Feel free to modify however you like. The project's [MIT licensed](https://github.com/sum-kcid/Web-Components/blob/master/LICENSE) :)
+
+## Ideas & Feedback
+
+I encourage you to suggest any ideas you have for web components I should create as well as leave any feedback for improvement
